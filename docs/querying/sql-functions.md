@@ -34,11 +34,24 @@ Click the linked function type for documentation on a particular function.
 
 ## ABS
 
-`ABS(<NUMERIC>)`
+Calculates the absolute value of a numeric expression. Any important note about the function. Is there a better method than to use it, is it deprecated, or any other side note that the user should know.
 
-**Function type:** [Scalar, numeric](sql-scalar.md#numeric-functions)
+* **Syntax:** `ABS<NUMERIC>`
+* **Function type:** Scalar, numeric
 
-Calculates the absolute value of a numeric expression.
+ 
+<details><summary>Example</summary>
+
+The following example shows ...
+
+```sql
+INSERT INTO ...
+```
+
+Returns the absolute value of each element in a `specified numerical column`.
+</details>
+
+[Learn more](sql-scalar.md#numeric-functions)
 
 ## ACOS
 
@@ -64,6 +77,7 @@ Returns any value of the specified expression.
 
 Counts distinct values of a regular column or a prebuilt sketch column.
 
+## APPROX_COUNT_DISTINCT_BUILTIN
 `APPROX_COUNT_DISTINCT_BUILTIN(expr)`
 
 **Function type:** [Aggregation](sql-aggregations.md)
