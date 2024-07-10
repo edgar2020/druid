@@ -34,7 +34,7 @@ Click the linked function type for documentation on a particular function.
 
 ## ABS
 
-Calculates the absolute value of a numeric expression. Any important note about the function. Is there a better method than to use it, is it deprecated, or any other side note that the user should know.
+Calculates the absolute value of a numeric expression.
 
 * **Syntax:** `ABS<NUMERIC>`
 * **Function type:** Scalar, numeric
@@ -42,13 +42,21 @@ Calculates the absolute value of a numeric expression. Any important note about 
  
 <details><summary>Example</summary>
 
-The following example shows ...
+The following example uses the `ArrDelay` column from the `FlightCarrierOnTime (1 month)` dataset.
 
 ```sql
-INSERT INTO ...
+SELECT
+  "ArrDelay",
+  ABS("ArrDelay") AS "Absolute"
+FROM "On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2005_11"
+WHERE "ArrDelay" < 0
+LIMIT 1
 ```
+Returns the following:
 
-Returns the absolute value of each element in a `specified numerical column`.
+| `ArrDelay` | `Absolute` | 
+| -- | -- | 
+| `-27` | `27` | 
 </details>
 
 [Learn more](sql-scalar.md#numeric-functions)
