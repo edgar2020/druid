@@ -42,13 +42,13 @@ Calculates the absolute value of a numeric expression.
  
 <details><summary>Example</summary>
 
-The following example uses the `ArrDelay` column from the `FlightCarrierOnTime (1 month)` dataset.
+The following example uses the `ArrDelay` column from the `flight-carriers` datasource.
 
 ```sql
 SELECT
   "ArrDelay",
   ABS("ArrDelay") AS "Absolute"
-FROM "On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2005_11"
+FROM "flight-carriers"
 WHERE "ArrDelay" < 0
 LIMIT 1
 ```
