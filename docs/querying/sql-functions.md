@@ -28,9 +28,12 @@ sidebar_label: "All functions"
  This document describes the SQL language.
 :::
 
-
 This page provides a reference of all Druid SQL functions in alphabetical order.
-Click the linked function type for documentation on a particular function.
+
+todo The **Learn More** link at the end of each function provides additional information on function. 
+The examples for each function uses the following datasets that come included with Apache Druid:
+* `flight-carriers`: `FlightCarrierOnTime (1 month)` 
+* `trips_xaa`: todo
 
 ## ABS
 
@@ -39,7 +42,6 @@ Calculates the absolute value of a numeric expression.
 * **Syntax:** `ABS<NUMERIC>`
 * **Function type:** Scalar, numeric
 
- 
 <details><summary>Example</summary>
 
 The following example uses the `ArrDelay` column from the `flight-carriers` datasource.
@@ -441,11 +443,25 @@ Rounds up a timestamp by a given time unit.
 
 ## CEIL (numeric)
 
-`CEIL(<NUMERIC>)`
+Rounds up to the smallest integer value greater than or equal to the numeric expression.
 
-**Function type:** [Scalar, numeric](sql-scalar.md#numeric-functions)
+* **Syntax:** `CEIL<NUMERIC>`
+* **Function type:** Scalar, numeric
 
-Calculates the smallest integer value greater than or equal to the numeric expression.
+<details><summary>Example</summary>
+The following example uses the `fare_amount` column from the `trips_xaa` datasource.
+
+```sql
+SELECT "fare_amount", CEIL("fare_amount") as "ceiling"
+FROM "trips_xaa"
+LIMIT 1
+```
+Returns the following:
+
+| `fare_amount` | `ceiling` | 
+| -- | -- | 
+| `21.25` | `22` | 
+</details>
 
 ## CHAR_LENGTH
 
