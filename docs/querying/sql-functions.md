@@ -28,9 +28,7 @@ sidebar_label: "All functions"
  This document describes the SQL language.
 :::
 
-This page provides a reference of all Druid SQL functions in alphabetical order.
-
-todo The **Learn More** link at the end of each function section, provides additional information on the function type.
+This page provides a reference of all Druid SQL functions in alphabetical order. The **Learn More** at the end of each function section provides further documentation on the function type.
 
 The examples for each function uses the following datasets that come included with Apache Druid:
 * `flight-carriers`: `FlightCarrierOnTime (1 month)` 
