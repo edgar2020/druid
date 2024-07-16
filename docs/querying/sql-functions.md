@@ -37,6 +37,7 @@ This page provides a reference of Apache Druid&circledR; SQL functions in alphab
 * [Window functions](sql-window-functions.md)
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 This page provides a reference of all Druid SQL functions in alphabetical order. The **Learn More** at the end of each function section provides further documentation.
 
 The examples for each function uses the following datasets that come included with Apache Druid:
@@ -47,6 +48,18 @@ The examples on this page use the following example datasources:
 * `flight-carriers` using `FlightCarrierOnTime (1 month)` 
 * `taxi-trips` using `NYC Taxi cabs (3 files)`
 >>>>>>> 721a65046f (docs: add examples for SQL functions (#16745))
+=======
+The examples on this page use the following example datasources:
+* `flight-carriers` using `FlightCarrierOnTime (1 month)` 
+* `taxi-trips` using `NYC Taxi cabs (3 files)`
+=======
+This page provides a reference of all Druid SQL functions in alphabetical order. The **Learn More** at the end of each function section provides further documentation.
+
+The examples for each function uses the following datasets that come included with Apache Druid:
+* `flight-carriers`: `FlightCarrierOnTime (1 month)` 
+* `trips_xaa`: `NYC Taxi cabs (3 files)`
+>>>>>>> 949322b2f0 (First batch of functions)
+>>>>>>> a16c80ba57 (First batch of functions)
 
 ## ABS
 
@@ -58,6 +71,7 @@ Calculates the absolute value of a numeric expression.
 <details><summary>Example</summary>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 The following applies the ABS function to the `ArrDelay` column, from the `flight-carriers` datasource.
 
 ```sql
@@ -65,7 +79,12 @@ SELECT
   "ArrDelay",
   ABS("ArrDelay") AS "Abs"
 =======
+=======
+>>>>>>> a16c80ba57 (First batch of functions)
 The following example applies the ABS function to the `ArrDelay` column from the `flight-carriers` datasource.
+=======
+The following applies the ABS function to the `ArrDelay` column, from the `flight-carriers` datasource.
+>>>>>>> 949322b2f0 (First batch of functions)
 
 ```sql
 SELECT
@@ -481,6 +500,7 @@ Calculates the smallest integer value greater than or equal to the numeric expre
 <details><summary>Example</summary>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 The following example applies the CEIL function to the `fare_amount` column, from the `taxi-trips` datasource.
 
 ```sql
@@ -488,6 +508,8 @@ SELECT
   "fare_amount",
   CEIL("fare_amount") AS "Ceiling"
 =======
+=======
+>>>>>>> a16c80ba57 (First batch of functions)
 The following example applies the CEIL function to the `fare_amount` column from the `taxi-trips` datasource.
 
 ```sql
@@ -496,15 +518,31 @@ SELECT
   CEIL("fare_amount") AS "ceiling_fare_amount"
 >>>>>>> 721a65046f (docs: add examples for SQL functions (#16745))
 FROM "taxi-trips"
+=======
+The following example applies the CEIL function to the `fare_amount` column, from the `trips_xaa` datasource.
+
+```sql
+SELECT
+  "fare_amount",
+  CEIL("fare_amount") AS "Ceiling"
+FROM "trips_xaa"
+>>>>>>> 949322b2f0 (First batch of functions)
 LIMIT 1
 ```
 Returns the following:
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 | `fare_amount` | `Ceiling` | 
 =======
 | `fare_amount` | `ceiling_fare_amount` | 
 >>>>>>> 721a65046f (docs: add examples for SQL functions (#16745))
+=======
+| `fare_amount` | `ceiling_fare_amount` | 
+=======
+| `fare_amount` | `Ceiling` | 
+>>>>>>> 949322b2f0 (First batch of functions)
+>>>>>>> a16c80ba57 (First batch of functions)
 | -- | -- | 
 | `21.25` | `22` | 
 </details>
@@ -809,6 +847,7 @@ Returns the following:
 The following example calculates _e_ to the power of 1.
 
 ```sql
+<<<<<<< HEAD
 SELECT EXP(1) AS "exponential" 
 ```
 Returns the following:
@@ -816,7 +855,23 @@ Returns the following:
 | `exponential` |
 | -- |
 | `2.7182818284590455` |
+<<<<<<< HEAD
 >>>>>>> 721a65046f (docs: add examples for SQL functions (#16745))
+=======
+=======
+SELECT
+  "trip_id" AS "exponent_value",
+  EXP(trip_id) AS "Exp"
+FROM "trips_xaa"
+LIMIT 1
+```
+Returns the following:
+
+| `exponent_value` | `Exp` | 
+| -- | -- | 
+| `1` | `2.7182818284590455` | 
+>>>>>>> 949322b2f0 (First batch of functions)
+>>>>>>> a16c80ba57 (First batch of functions)
 </details>
 
 [Learn more](sql-scalar.md#numeric-functions)
@@ -861,6 +916,7 @@ Calculates the largest integer less than or equal to the numeric expression.
 <details><summary>Example</summary>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 The following example applies the FLOOR function to the `fare_amount` column, from the `taxi-trips` datasource.
 
 ```sql
@@ -868,7 +924,12 @@ SELECT
   "fare_amount",
   FLOOR("fare_amount") AS "Floor"
 =======
+=======
+>>>>>>> a16c80ba57 (First batch of functions)
 The following example applies the FLOOR function to the `fare_amount` column from the `taxi-trips` datasource.
+=======
+The following example applies the FLOOR function to the `fare_amount` column, from the `trips_xaa` datasource.
+>>>>>>> 949322b2f0 (First batch of functions)
 
 ```sql
 SELECT
@@ -1125,6 +1186,7 @@ Calculates the natural logarithm of the numeric expression.
 <details><summary>Example</summary>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 The following example applies the LN function to the `max_temperature` column, from the `taxi-trips` datasource.
 
 ```sql
@@ -1132,7 +1194,12 @@ SELECT
   "max_temperature",
   LN("max_temperature") AS "Ln"
 =======
+=======
+>>>>>>> a16c80ba57 (First batch of functions)
 The following example applies the LN function to the `max_temperature` column from the `taxi-trips` datasource.
+=======
+The following example applies the LN function to the `max_temperature` column, from the `trips_xaa` datasource.
+>>>>>>> 949322b2f0 (First batch of functions)
 
 ```sql
 SELECT
