@@ -1226,11 +1226,16 @@ Returns the following:
 
 Calculates the base-10 logarithm of the numeric expression.
 
+<<<<<<< HEAD
 * **Syntax:** `LOG10(<NUMERIC>)`
+=======
+* **Syntax:** `LOG10(expr)`
+>>>>>>> 17f731155b (batch2 changes)
 * **Function type:** Scalar, numeric
 
 <details><summary>Example</summary>
 
+<<<<<<< HEAD
 The following example applies the LOG10 function to the `max_temperature` column from the `taxi-trips` datasource.
 
 ```sql
@@ -1238,11 +1243,24 @@ SELECT
   "max_temperature" AS "max_temperature",
   LOG10("max_temperature") AS "log10_max_temp"
 FROM "taxi-trips"
+=======
+The following example applies the LOG10 function to the `max_temperature` column, from the `trips_xaa` datasource.
+
+```sql
+SELECT
+  "max_temperature",
+  LOG10("max_temperature") AS "Log10"
+FROM "trips_xaa"
+>>>>>>> 17f731155b (batch2 changes)
 LIMIT 1
 ```
 Returns the following:
 
+<<<<<<< HEAD
 | `max_temperature` | `log10_max_temp` | 
+=======
+| `max_temperature` | `Log10` | 
+>>>>>>> 17f731155b (batch2 changes)
 | -- | -- | 
 | `76` | `1.8808135922807914` | 
 </details>
@@ -1314,6 +1332,7 @@ Calculates x modulo y, or the remainder of x divided by y. Where x and y are num
 
 <details><summary>Example</summary>
 
+<<<<<<< HEAD
 The following calculates 78 MOD 10.
 
 ```sql
@@ -1324,6 +1343,23 @@ Returns the following:
 | `mod` | 
 | -- | 
 | `8` | 
+=======
+The following applies MOD with a y value of 10 to the `max_temperature` column, from the `trips_xaa` datasource.
+
+```sql
+SELECT
+  "max_temperature",
+  MOD("max_temperature", 10) as "Mod"
+FROM "trips_xaa"
+WHERE "max_temperature" > 0
+LIMIT 1
+```
+Returns the following:
+
+| `max_temperature` | `Mod` | 
+| -- | -- | 
+| `76` | `6` | 
+>>>>>>> 17f731155b (batch2 changes)
 </details>
 
 [Learn more](sql-scalar.md#numeric-functions)
@@ -1513,6 +1549,7 @@ Calculates a numerical expression raised to the specified power.
 
 <details><summary>Example</summary>
 
+<<<<<<< HEAD
 The following example raise 5 to the power of 2.
 ```sql
 SELECT POWER(5, 2) AS "power"
@@ -1522,6 +1559,22 @@ Returns the following:
 | `power` |
 | -- |
 | `25` | 
+=======
+The following example raise the `trip_distance` column, from the `trips_xaa` datasource, to the power of 2.
+```sql
+SELECT
+  "trip_distance",
+  POWER("trip_distance", 2) as "PowerOf2"
+FROM "trips_xaa"
+WHERE "trip_distance" > 0
+LIMIT 1
+```
+Returns the following:
+
+| `trip_distance` | `PowerOf2` | 
+| -- | -- | 
+| `26.46` | `700.6609` | 
+>>>>>>> 17f731155b (batch2 changes)
 </details>
 
 [Learn more](sql-scalar.md#numeric-functions)
@@ -1608,6 +1661,7 @@ Calculates the rounded value for a numerical expression.
 
 <details><summary>Example</summary>
 
+<<<<<<< HEAD
 The following applies the ROUND function to 0 decimal points on the `pickup_longitude` column. The `pickup_longitude` column is from the `taxi-trips` datasource.
 
 ```sql
@@ -1615,12 +1669,25 @@ SELECT
   "pickup_longitude" AS "pickup_longitude",
   ROUND("pickup_longitude", 0) as "round_pickup_longitude"
 FROM "taxi-trips"
+=======
+The following applies the ROUND function to 0 decimal points on the `pickup_longitude` column, from the `trips_xaa` datasource.
+
+```sql
+SELECT
+  "pickup_longitude",
+  ROUND("pickup_longitude", 0) as "Round"
+FROM "trips_xaa"
+>>>>>>> 17f731155b (batch2 changes)
 WHERE "pickup_longitude" IS NOT NULL
 LIMIT 1
 ```
 Returns the following:
 
+<<<<<<< HEAD
 | `pickup_longitude` | `round_pickup_longitude` | 
+=======
+| `pickup_longitude` | `Round` | 
+>>>>>>> 17f731155b (batch2 changes)
 | -- | -- | 
 | `-73.9377670288086` | `-74` | 
 </details>
@@ -1676,6 +1743,7 @@ Calculates the square root of a numeric expression.
 
 <details><summary>Example</summary>
 
+<<<<<<< HEAD
 The following example applies SQRT to the `trip_distance` column from the `taxi-trips` datasource.
 
 ```sql
@@ -1686,6 +1754,23 @@ Returns the following:
 | `square_root` |  
 | -- | 
 | `5` |
+=======
+The following example applies SQRT to the `trip_distance` column, from the `trips_xaa` datasource.
+
+```sql
+SELECT
+  "trip_distance",
+  SQRT("trip_distance") as "Sqrt"
+FROM "trips_xaa"
+WHERE "trip_distance" > 0
+LIMIT 1
+```
+Returns the following:
+
+| `trip_distance` | `Sqrt` | 
+| -- | -- | 
+| `26.46` | `5.144900387762624` | 
+>>>>>>> 17f731155b (batch2 changes)
 </details>
 
 [Learn more](sql-scalar.md#numeric-functions)
@@ -1974,6 +2059,7 @@ Truncates a numerical expression to a specific number of decimal digits.
 
 <details><summary>Example</summary>
 
+<<<<<<< HEAD
 The following applies the TRUNCATE function to 1 decimal place on the `pickup_longitude` column. The `pickup_longitude` column is from the `taxi-trips` datasource.
 
 ```sql
@@ -1981,12 +2067,25 @@ SELECT
   "pickup_longitude" as "pickup_longitude",
   TRUNCATE("pickup_longitude", 1) as "truncate_pickup_longitude"
 FROM "taxi-trips"
+=======
+The following applies the TRUNCATE function to 1 decimal places on the `pickup_longitude` column, from the `trips_xaa` datasource.
+
+```sql
+SELECT
+  "pickup_longitude",
+  TRUNCATE("pickup_longitude", 1) as "Truncate"
+FROM "trips_xaa"
+>>>>>>> 17f731155b (batch2 changes)
 WHERE "pickup_longitude" IS NOT NULL
 LIMIT 1
 ```
 Returns the following:
 
+<<<<<<< HEAD
 | `pickup_longitude` | `truncate_pickup_longitude` | 
+=======
+| `pickup_longitude` | `Truncate` | 
+>>>>>>> 17f731155b (batch2 changes)
 | -- | -- | 
 | `-73.9377670288086` | `-73.9` | 
 </details>
