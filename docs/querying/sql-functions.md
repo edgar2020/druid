@@ -32,7 +32,7 @@ This page provides a reference of all Druid SQL functions in alphabetical order.
 
 The examples for each function uses the following datasets that come included with Apache Druid:
 * `flight-carriers`: `FlightCarrierOnTime (1 month)` 
-* `trips_xaa`: `NYC Taxi cabs (3 files)`
+* `taxi-trips`: `NYC Taxi cabs (3 files)`
 
 ## ABS
 
@@ -449,13 +449,13 @@ Rounds up to the smallest integer value greater than or equal to the numeric exp
 
 <details><summary>Example</summary>
 
-The following example applies the CEIL function to the `fare_amount` column, from the `trips_xaa` datasource.
+The following example applies the CEIL function to the `fare_amount` column, from the `taxi-trips` datasource.
 
 ```sql
 SELECT
   "fare_amount",
   CEIL("fare_amount") AS "Ceiling"
-FROM "trips_xaa"
+FROM "taxi-trips"
 LIMIT 1
 ```
 Returns the following:
@@ -746,13 +746,13 @@ Calculates _e_ raised to the power of the numeric expression.
 
 <details><summary>Example</summary>
 
-The following example raise _e_ to the power of `trip_id`, from the `trips_xaa` datasource.
+The following example raise _e_ to the power of `trip_id`, from the `taxi-trips` datasource.
 
 ```sql
 SELECT
   "trip_id" AS "exponent_value",
   EXP(trip_id) AS "Exp"
-FROM "trips_xaa"
+FROM "taxi-trips"
 LIMIT 1
 ```
 Returns the following:
@@ -797,13 +797,13 @@ Rounds down to the largest integer value less than or equal to the numeric expre
 
 <details><summary>Example</summary>
 
-The following example applies the FLOOR function to the `fare_amount` column, from the `trips_xaa` datasource.
+The following example applies the FLOOR function to the `fare_amount` column, from the `taxi-trips` datasource.
 
 ```sql
 SELECT
   "fare_amount",
   FLOOR("fare_amount") AS "Floor"
-FROM "trips_xaa"
+FROM "taxi-trips"
 LIMIT 1
 ```
 Returns the following:
@@ -1048,13 +1048,13 @@ Calculates the natural logarithm of the numeric expression.
 
 <details><summary>Example</summary>
 
-The following example applies the LN function to the `max_temperature` column, from the `trips_xaa` datasource.
+The following example applies the LN function to the `max_temperature` column, from the `taxi-trips` datasource.
 
 ```sql
 SELECT
   "max_temperature",
   LN("max_temperature") AS "Ln"
-FROM "trips_xaa"
+FROM "taxi-trips"
 LIMIT 1
 ```
 Returns the following:
@@ -1075,18 +1075,18 @@ Calculates the base-10 logarithm of the numeric expression.
 
 <details><summary>Example</summary>
 
-The following example applies the LOG10 function to the `max_temperature` column, from the `trips_xaa` datasource.
+The following example applies the LOG10 function to the `max_temperature` column from the `taxi-trips` datasource.
 
 ```sql
 SELECT
-  "max_temperature",
-  LOG10("max_temperature") AS "Log10"
-FROM "trips_xaa"
+  "max_temperature" AS "max_temperature",
+  LOG10("max_temperature") AS "log10_max_temp"
+FROM "taxi-trips"
 LIMIT 1
 ```
 Returns the following:
 
-| `max_temperature` | `Log10` | 
+| `max_temperature` | `log10_max_temp` | 
 | -- | -- | 
 | `76` | `1.8808135922807914` | 
 </details>
@@ -1158,13 +1158,13 @@ Calculates x modulo y, or the remainder of x divided by y. Where x and y are num
 
 <details><summary>Example</summary>
 
-The following applies MOD with a y value of 10 to the `max_temperature` column, from the `trips_xaa` datasource.
+The following applies MOD with a y value of 10 to the `max_temperature` column, from the `taxi-trips` datasource.
 
 ```sql
 SELECT
   "max_temperature",
   MOD("max_temperature", 10) as "Mod"
-FROM "trips_xaa"
+FROM "taxi-trips"
 WHERE "max_temperature" > 0
 LIMIT 1
 ```
@@ -1362,12 +1362,12 @@ Calculates a numerical expression raised to the specified power.
 
 <details><summary>Example</summary>
 
-The following example raise the `trip_distance` column, from the `trips_xaa` datasource, to the power of 2.
+The following example raise the `trip_distance` column, from the `taxi-trips` datasource, to the power of 2.
 ```sql
 SELECT
   "trip_distance",
   POWER("trip_distance", 2) as "PowerOf2"
-FROM "trips_xaa"
+FROM "taxi-trips"
 WHERE "trip_distance" > 0
 LIMIT 1
 ```
@@ -1462,13 +1462,13 @@ Calculates the rounded value for a numerical expression.
 
 <details><summary>Example</summary>
 
-The following applies the ROUND function to 0 decimal points on the `pickup_longitude` column, from the `trips_xaa` datasource.
+The following applies the ROUND function to 0 decimal points on the `pickup_longitude` column, from the `taxi-trips` datasource.
 
 ```sql
 SELECT
   "pickup_longitude",
   ROUND("pickup_longitude", 0) as "Round"
-FROM "trips_xaa"
+FROM "taxi-trips"
 WHERE "pickup_longitude" IS NOT NULL
 LIMIT 1
 ```
@@ -1530,13 +1530,13 @@ Calculates the square root of a numeric expression.
 
 <details><summary>Example</summary>
 
-The following example applies SQRT to the `trip_distance` column, from the `trips_xaa` datasource.
+The following example applies SQRT to the `trip_distance` column, from the `taxi-trips` datasource.
 
 ```sql
 SELECT
   "trip_distance",
   SQRT("trip_distance") as "Sqrt"
-FROM "trips_xaa"
+FROM "taxi-trips"
 WHERE "trip_distance" > 0
 LIMIT 1
 ```
@@ -1833,13 +1833,13 @@ Truncates a numerical expression to a specific number of decimal digits.
 
 <details><summary>Example</summary>
 
-The following applies the TRUNCATE function to 1 decimal places on the `pickup_longitude` column, from the `trips_xaa` datasource.
+The following applies the TRUNCATE function to 1 decimal places on the `pickup_longitude` column, from the `taxi-trips` datasource.
 
 ```sql
 SELECT
   "pickup_longitude",
   TRUNCATE("pickup_longitude", 1) as "Truncate"
-FROM "trips_xaa"
+FROM "taxi-trips"
 WHERE "pickup_longitude" IS NOT NULL
 LIMIT 1
 ```
