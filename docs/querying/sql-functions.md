@@ -57,9 +57,16 @@ This page provides a reference of all Druid SQL functions in alphabetical order.
 
 The examples for each function uses the following datasets that come included with Apache Druid:
 * `flight-carriers`: `FlightCarrierOnTime (1 month)` 
+<<<<<<< HEAD
 * `trips_xaa`: `NYC Taxi cabs (3 files)`
 >>>>>>> 949322b2f0 (First batch of functions)
+<<<<<<< HEAD
 >>>>>>> a16c80ba57 (First batch of functions)
+=======
+=======
+* `taxi-trips`: `NYC Taxi cabs (3 files)`
+>>>>>>> 519548aeff (changed name of the datasource)
+>>>>>>> 703ce35dbe (changed name of the datasource)
 
 ## ABS
 
@@ -501,6 +508,7 @@ Calculates the smallest integer value greater than or equal to the numeric expre
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 The following example applies the CEIL function to the `fare_amount` column, from the `taxi-trips` datasource.
 
 ```sql
@@ -510,6 +518,8 @@ SELECT
 =======
 =======
 >>>>>>> a16c80ba57 (First batch of functions)
+=======
+>>>>>>> 703ce35dbe (changed name of the datasource)
 The following example applies the CEIL function to the `fare_amount` column from the `taxi-trips` datasource.
 
 ```sql
@@ -520,13 +530,20 @@ SELECT
 FROM "taxi-trips"
 =======
 The following example applies the CEIL function to the `fare_amount` column, from the `trips_xaa` datasource.
+=======
+The following example applies the CEIL function to the `fare_amount` column, from the `taxi-trips` datasource.
+>>>>>>> 519548aeff (changed name of the datasource)
 
 ```sql
 SELECT
   "fare_amount",
   CEIL("fare_amount") AS "Ceiling"
+<<<<<<< HEAD
 FROM "trips_xaa"
 >>>>>>> 949322b2f0 (First batch of functions)
+=======
+FROM "taxi-trips"
+>>>>>>> 519548aeff (changed name of the datasource)
 LIMIT 1
 ```
 Returns the following:
@@ -829,6 +846,7 @@ Calculates _e_ raised to the power of the numeric expression.
 <details><summary>Example</summary>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 The following example raise _e_ to the power of `trip_id`, from the `taxi-trips` datasource.
 
 ```sql
@@ -844,7 +862,12 @@ Returns the following:
 | -- | -- | 
 | `1` | `2.7182818284590455` | 
 =======
+=======
+>>>>>>> 703ce35dbe (changed name of the datasource)
 The following example calculates _e_ to the power of 1.
+=======
+The following example raise _e_ to the power of `trip_id`, from the `taxi-trips` datasource.
+>>>>>>> 519548aeff (changed name of the datasource)
 
 ```sql
 <<<<<<< HEAD
@@ -862,7 +885,7 @@ Returns the following:
 SELECT
   "trip_id" AS "exponent_value",
   EXP(trip_id) AS "Exp"
-FROM "trips_xaa"
+FROM "taxi-trips"
 LIMIT 1
 ```
 Returns the following:
@@ -917,6 +940,7 @@ Calculates the largest integer less than or equal to the numeric expression.
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 The following example applies the FLOOR function to the `fare_amount` column, from the `taxi-trips` datasource.
 
 ```sql
@@ -926,6 +950,8 @@ SELECT
 =======
 =======
 >>>>>>> a16c80ba57 (First batch of functions)
+=======
+>>>>>>> 703ce35dbe (changed name of the datasource)
 The following example applies the FLOOR function to the `fare_amount` column from the `taxi-trips` datasource.
 =======
 The following example applies the FLOOR function to the `fare_amount` column, from the `trips_xaa` datasource.
@@ -935,7 +961,18 @@ The following example applies the FLOOR function to the `fare_amount` column, fr
 SELECT
   "fare_amount" AS "fare_amount",
   FLOOR("fare_amount") AS "floor_fare_amount"
+<<<<<<< HEAD
 >>>>>>> 721a65046f (docs: add examples for SQL functions (#16745))
+=======
+=======
+The following example applies the FLOOR function to the `fare_amount` column, from the `taxi-trips` datasource.
+
+```sql
+SELECT
+  "fare_amount",
+  FLOOR("fare_amount") AS "Floor"
+>>>>>>> 519548aeff (changed name of the datasource)
+>>>>>>> 703ce35dbe (changed name of the datasource)
 FROM "taxi-trips"
 LIMIT 1
 ```
@@ -1187,6 +1224,7 @@ Calculates the natural logarithm of the numeric expression.
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 The following example applies the LN function to the `max_temperature` column, from the `taxi-trips` datasource.
 
 ```sql
@@ -1196,6 +1234,8 @@ SELECT
 =======
 =======
 >>>>>>> a16c80ba57 (First batch of functions)
+=======
+>>>>>>> 703ce35dbe (changed name of the datasource)
 The following example applies the LN function to the `max_temperature` column from the `taxi-trips` datasource.
 =======
 The following example applies the LN function to the `max_temperature` column, from the `trips_xaa` datasource.
@@ -1205,7 +1245,18 @@ The following example applies the LN function to the `max_temperature` column, f
 SELECT
   "max_temperature" AS "max_temperature",
   LN("max_temperature") AS "natural_log_max_temp"
+<<<<<<< HEAD
 >>>>>>> 721a65046f (docs: add examples for SQL functions (#16745))
+=======
+=======
+The following example applies the LN function to the `max_temperature` column, from the `taxi-trips` datasource.
+
+```sql
+SELECT
+  "max_temperature",
+  LN("max_temperature") AS "Ln"
+>>>>>>> 519548aeff (changed name of the datasource)
+>>>>>>> 703ce35dbe (changed name of the datasource)
 FROM "taxi-trips"
 LIMIT 1
 ```
@@ -1236,6 +1287,7 @@ Calculates the base-10 logarithm of the numeric expression.
 <details><summary>Example</summary>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 The following example applies the LOG10 function to the `max_temperature` column from the `taxi-trips` datasource.
 
 ```sql
@@ -1252,15 +1304,28 @@ SELECT
   LOG10("max_temperature") AS "Log10"
 FROM "trips_xaa"
 >>>>>>> 17f731155b (batch2 changes)
+=======
+The following example applies the LOG10 function to the `max_temperature` column from the `taxi-trips` datasource.
+
+```sql
+SELECT
+  "max_temperature" AS "max_temperature",
+  LOG10("max_temperature") AS "log10_max_temp"
+FROM "taxi-trips"
+>>>>>>> 703ce35dbe (changed name of the datasource)
 LIMIT 1
 ```
 Returns the following:
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 | `max_temperature` | `log10_max_temp` | 
 =======
 | `max_temperature` | `Log10` | 
 >>>>>>> 17f731155b (batch2 changes)
+=======
+| `max_temperature` | `log10_max_temp` | 
+>>>>>>> 703ce35dbe (changed name of the datasource)
 | -- | -- | 
 | `76` | `1.8808135922807914` | 
 </details>
@@ -1333,6 +1398,7 @@ Calculates x modulo y, or the remainder of x divided by y. Where x and y are num
 <details><summary>Example</summary>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 The following calculates 78 MOD 10.
 
 ```sql
@@ -1345,12 +1411,15 @@ Returns the following:
 | `8` | 
 =======
 The following applies MOD with a y value of 10 to the `max_temperature` column, from the `trips_xaa` datasource.
+=======
+The following applies MOD with a y value of 10 to the `max_temperature` column, from the `taxi-trips` datasource.
+>>>>>>> 703ce35dbe (changed name of the datasource)
 
 ```sql
 SELECT
   "max_temperature",
   MOD("max_temperature", 10) as "Mod"
-FROM "trips_xaa"
+FROM "taxi-trips"
 WHERE "max_temperature" > 0
 LIMIT 1
 ```
@@ -1550,6 +1619,7 @@ Calculates a numerical expression raised to the specified power.
 <details><summary>Example</summary>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 The following example raise 5 to the power of 2.
 ```sql
 SELECT POWER(5, 2) AS "power"
@@ -1561,11 +1631,14 @@ Returns the following:
 | `25` | 
 =======
 The following example raise the `trip_distance` column, from the `trips_xaa` datasource, to the power of 2.
+=======
+The following example raise the `trip_distance` column, from the `taxi-trips` datasource, to the power of 2.
+>>>>>>> 703ce35dbe (changed name of the datasource)
 ```sql
 SELECT
   "trip_distance",
   POWER("trip_distance", 2) as "PowerOf2"
-FROM "trips_xaa"
+FROM "taxi-trips"
 WHERE "trip_distance" > 0
 LIMIT 1
 ```
@@ -1662,6 +1735,7 @@ Calculates the rounded value for a numerical expression.
 <details><summary>Example</summary>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 The following applies the ROUND function to 0 decimal points on the `pickup_longitude` column. The `pickup_longitude` column is from the `taxi-trips` datasource.
 
 ```sql
@@ -1671,13 +1745,20 @@ SELECT
 FROM "taxi-trips"
 =======
 The following applies the ROUND function to 0 decimal points on the `pickup_longitude` column, from the `trips_xaa` datasource.
+=======
+The following applies the ROUND function to 0 decimal points on the `pickup_longitude` column, from the `taxi-trips` datasource.
+>>>>>>> 703ce35dbe (changed name of the datasource)
 
 ```sql
 SELECT
   "pickup_longitude",
   ROUND("pickup_longitude", 0) as "Round"
+<<<<<<< HEAD
 FROM "trips_xaa"
 >>>>>>> 17f731155b (batch2 changes)
+=======
+FROM "taxi-trips"
+>>>>>>> 703ce35dbe (changed name of the datasource)
 WHERE "pickup_longitude" IS NOT NULL
 LIMIT 1
 ```
@@ -1744,6 +1825,7 @@ Calculates the square root of a numeric expression.
 <details><summary>Example</summary>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 The following example applies SQRT to the `trip_distance` column from the `taxi-trips` datasource.
 
 ```sql
@@ -1756,12 +1838,15 @@ Returns the following:
 | `5` |
 =======
 The following example applies SQRT to the `trip_distance` column, from the `trips_xaa` datasource.
+=======
+The following example applies SQRT to the `trip_distance` column, from the `taxi-trips` datasource.
+>>>>>>> 703ce35dbe (changed name of the datasource)
 
 ```sql
 SELECT
   "trip_distance",
   SQRT("trip_distance") as "Sqrt"
-FROM "trips_xaa"
+FROM "taxi-trips"
 WHERE "trip_distance" > 0
 LIMIT 1
 ```
@@ -2060,6 +2145,7 @@ Truncates a numerical expression to a specific number of decimal digits.
 <details><summary>Example</summary>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 The following applies the TRUNCATE function to 1 decimal place on the `pickup_longitude` column. The `pickup_longitude` column is from the `taxi-trips` datasource.
 
 ```sql
@@ -2069,13 +2155,20 @@ SELECT
 FROM "taxi-trips"
 =======
 The following applies the TRUNCATE function to 1 decimal places on the `pickup_longitude` column, from the `trips_xaa` datasource.
+=======
+The following applies the TRUNCATE function to 1 decimal places on the `pickup_longitude` column, from the `taxi-trips` datasource.
+>>>>>>> 703ce35dbe (changed name of the datasource)
 
 ```sql
 SELECT
   "pickup_longitude",
   TRUNCATE("pickup_longitude", 1) as "Truncate"
+<<<<<<< HEAD
 FROM "trips_xaa"
 >>>>>>> 17f731155b (batch2 changes)
+=======
+FROM "taxi-trips"
+>>>>>>> 703ce35dbe (changed name of the datasource)
 WHERE "pickup_longitude" IS NOT NULL
 LIMIT 1
 ```
