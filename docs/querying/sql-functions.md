@@ -1070,7 +1070,7 @@ Returns the following:
 
 Calculates the base-10 logarithm of the numeric expression.
 
-* **Syntax:** `LOG10(expr)`
+* **Syntax:** `LOG10(<NUMERIC>)`
 * **Function type:** Scalar, numeric
 
 <details><summary>Example</summary>
