@@ -36,17 +36,9 @@ This page provides a reference of Apache Druid&circledR; SQL functions in alphab
 * [Scalar functions](sql-scalar.md)
 * [Window functions](sql-window-functions.md)
 
-<<<<<<< HEAD
-This page provides a reference of all Druid SQL functions in alphabetical order. The **Learn More** at the end of each function section provides further documentation.
-
-The examples for each function uses the following datasets that come included with Apache Druid:
-* `flight-carriers`: `FlightCarrierOnTime (1 month)` 
-* `taxi-trips`: `NYC Taxi cabs (3 files)`
-=======
 The examples on this page use the following example datasources:
 * `flight-carriers` using `FlightCarrierOnTime (1 month)` 
 * `taxi-trips` using `NYC Taxi cabs (3 files)`
->>>>>>> 721a65046f (docs: add examples for SQL functions (#16745))
 
 ## ABS
 
@@ -57,32 +49,19 @@ Calculates the absolute value of a numeric expression.
 
 <details><summary>Example</summary>
 
-<<<<<<< HEAD
-The following applies the ABS function to the `ArrDelay` column, from the `flight-carriers` datasource.
-
-```sql
-SELECT
-  "ArrDelay",
-  ABS("ArrDelay") AS "Abs"
-=======
 The following example applies the ABS function to the `ArrDelay` column from the `flight-carriers` datasource.
 
 ```sql
 SELECT
   "ArrDelay" AS "arrival_delay",
   ABS("ArrDelay") AS "absolute_arrival_delay"
->>>>>>> 721a65046f (docs: add examples for SQL functions (#16745))
 FROM "flight-carriers"
 WHERE "ArrDelay" < 0
 LIMIT 1
 ```
 Returns the following:
 
-<<<<<<< HEAD
-| `ArrDelay` | `Abs` | 
-=======
 | `arrival_delay` | `absolute_arrival_delay` | 
->>>>>>> 721a65046f (docs: add examples for SQL functions (#16745))
 | -- | -- | 
 | `-27` | `27` | 
 </details>
@@ -469,42 +448,24 @@ Rounds up a timestamp by a given time unit.
 
 ## CEIL (numeric)
 
-<<<<<<< HEAD
-Rounds up to the smallest integer value greater than or equal to the numeric expression.
-
-=======
 Calculates the smallest integer value greater than or equal to the numeric expression.
->>>>>>> 721a65046f (docs: add examples for SQL functions (#16745))
 * **Syntax:** `CEIL(<NUMERIC>)`
 * **Function type:** Scalar, numeric
 
 <details><summary>Example</summary>
 
-<<<<<<< HEAD
-The following example applies the CEIL function to the `fare_amount` column, from the `taxi-trips` datasource.
-
-```sql
-SELECT
-  "fare_amount",
-  CEIL("fare_amount") AS "Ceiling"
-=======
 The following example applies the CEIL function to the `fare_amount` column from the `taxi-trips` datasource.
 
 ```sql
 SELECT
   "fare_amount" AS "fare_amount",
   CEIL("fare_amount") AS "ceiling_fare_amount"
->>>>>>> 721a65046f (docs: add examples for SQL functions (#16745))
 FROM "taxi-trips"
 LIMIT 1
 ```
 Returns the following:
 
-<<<<<<< HEAD
-| `fare_amount` | `Ceiling` | 
-=======
 | `fare_amount` | `ceiling_fare_amount` | 
->>>>>>> 721a65046f (docs: add examples for SQL functions (#16745))
 | -- | -- | 
 | `21.25` | `22` | 
 </details>
@@ -790,22 +751,6 @@ Calculates _e_ raised to the power of the numeric expression.
 
 <details><summary>Example</summary>
 
-<<<<<<< HEAD
-The following example raise _e_ to the power of `trip_id`, from the `taxi-trips` datasource.
-
-```sql
-SELECT
-  "trip_id" AS "exponent_value",
-  EXP(trip_id) AS "Exp"
-FROM "taxi-trips"
-LIMIT 1
-```
-Returns the following:
-
-| `exponent_value` | `Exp` | 
-| -- | -- | 
-| `1` | `2.7182818284590455` | 
-=======
 The following example calculates _e_ to the power of 1.
 
 ```sql
@@ -816,7 +761,6 @@ Returns the following:
 | `exponential` |
 | -- |
 | `2.7182818284590455` |
->>>>>>> 721a65046f (docs: add examples for SQL functions (#16745))
 </details>
 
 [Learn more](sql-scalar.md#numeric-functions)
@@ -847,44 +791,25 @@ Rounds down a timestamp by a given time unit.
 
 ## FLOOR (numeric)
 
-<<<<<<< HEAD
-Rounds down to the largest integer value less than or equal to the numeric expression.
-
-* **Syntax:** `Floor(<NUMERIC>)`
-=======
 Calculates the largest integer less than or equal to the numeric expression.
 
 * **Syntax:** `FLOOR(<NUMERIC>)`
->>>>>>> 721a65046f (docs: add examples for SQL functions (#16745))
 * **Function type:** Scalar, numeric
 
 <details><summary>Example</summary>
 
-<<<<<<< HEAD
-The following example applies the FLOOR function to the `fare_amount` column, from the `taxi-trips` datasource.
-
-```sql
-SELECT
-  "fare_amount",
-  FLOOR("fare_amount") AS "Floor"
-=======
 The following example applies the FLOOR function to the `fare_amount` column from the `taxi-trips` datasource.
 
 ```sql
 SELECT
   "fare_amount" AS "fare_amount",
   FLOOR("fare_amount") AS "floor_fare_amount"
->>>>>>> 721a65046f (docs: add examples for SQL functions (#16745))
 FROM "taxi-trips"
 LIMIT 1
 ```
 Returns the following:
 
-<<<<<<< HEAD
-| `fare_amount` | `Floor` | 
-=======
 | `fare_amount` | `floor_fare_amount` | 
->>>>>>> 721a65046f (docs: add examples for SQL functions (#16745))
 | -- | -- | 
 | `21.25` | `21` | 
 </details>
@@ -1124,31 +1049,18 @@ Calculates the natural logarithm of the numeric expression.
 
 <details><summary>Example</summary>
 
-<<<<<<< HEAD
-The following example applies the LN function to the `max_temperature` column, from the `taxi-trips` datasource.
-
-```sql
-SELECT
-  "max_temperature",
-  LN("max_temperature") AS "Ln"
-=======
 The following example applies the LN function to the `max_temperature` column from the `taxi-trips` datasource.
 
 ```sql
 SELECT
   "max_temperature" AS "max_temperature",
   LN("max_temperature") AS "natural_log_max_temp"
->>>>>>> 721a65046f (docs: add examples for SQL functions (#16745))
 FROM "taxi-trips"
 LIMIT 1
 ```
 Returns the following:
 
-<<<<<<< HEAD
-| `max_temperature` | `Ln` | 
-=======
 | `max_temperature` | `natural_log_max_temp` | 
->>>>>>> 721a65046f (docs: add examples for SQL functions (#16745))
 | -- | -- | 
 | `76` | `4.330733340286331` | 
 </details>
