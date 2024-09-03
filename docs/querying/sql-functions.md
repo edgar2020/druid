@@ -978,7 +978,7 @@ Returns the result of integer division of `x` by `y`.
 * **Syntax:** `DIV(x, y)`
 * **Function type:** Scalar, numeric
 
-<!--
+
 <details><summary>Example</summary>
 
   The following calculates integer divisions of `78` by `10`.
@@ -994,13 +994,12 @@ Returns the result of integer division of `x` by `y`.
   | `7` |
 
 </details>
--->
 
-:::info
+<!-- :::info
 
   The `DIV` function is not implemented in Druid versions 30.0.0 or earlier. Consider using [`SAFE_DIVIDE`](./sql-functions.md/#safe_divide) instead. 
 
-:::
+::: -->
 
 [Learn more](sql-scalar.md#numeric-functions)
 
