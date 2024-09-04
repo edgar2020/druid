@@ -1286,9 +1286,34 @@ FROM "flight-carriers"
 
 Returns the following:
 
-| `hll_string` |
-| -- |
-| <!-- vale off --><p>HLL SKETCH SUMMARY:` </p><p>Log Config K   : 12</p><p>Hll Target     : HLL_4</p><p>Current Mode   : HLL</p><p>Memory         : false</p><p>LB             : 4611.381540678335</p><p>Estimate       : 4685.8815405960595</p><p>UB             : 4762.978259800803</p><p>OutOfOrder Flag: true</p><p>CurMin         : 0</p><p>NumAtCurMin    : 1316</p><p>HipAccum       : 0.0</p> <p>KxQ0           : 2080.7755126953125</p><p>KxQ1           : 0.0  </p><p>Rebuild KxQ Fg: false</p><!-- vale on -->|
+<table>
+<tr>
+<td background-color="red">hll_string</td>
+</tr>
+<tr>
+<td>
+
+```
+### HLL SKETCH SUMMARY: 
+  Log Config K   : 12
+  Hll Target     : HLL_4
+  Current Mode   : HLL
+  Memory         : false
+  LB             : 4611.381540678335
+  Estimate       : 4685.8815405960595
+  UB             : 4762.978259800803
+  OutOfOrder Flag: true
+  CurMin         : 0
+  NumAtCurMin    : 1316
+  HipAccum       : 0.0
+  KxQ0           : 2080.7755126953125
+  KxQ1           : 0.0
+  Rebuild KxQ Flg: false
+```
+
+</td>
+</tr>
+</table>
 
 
 </details>
