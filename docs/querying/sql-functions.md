@@ -1337,7 +1337,7 @@ The following example returns the HLL sketch on column `Tail_Number` from the `f
 
 ```sql
 SELECT
-  HLL_SKETCH_TO_STRING( DS_HLL("Tail_Number") ) AS "hll_string"
+  HLL_SKETCH_TO_STRING( DS_HLL("Tail_Number") ) AS "summary"
 FROM "flight-carriers"
 ```
 
@@ -1345,7 +1345,7 @@ Returns the following:
 
 <table>
 <tr>
-<td background-color="red">hll_string</td>
+<td><code>summary</code></td>
 </tr>
 <tr>
 <td>
@@ -1380,7 +1380,7 @@ Returns the following:
 
 ## HLL_SKETCH_UNION
 
-Returns a union of HLL sketches, where each input expresion must return an HLL sketch. The [HLL sketch documentation](../development//extensions-core//datasketches-hll.md) describes the optional `lgK` and `tgtHllType` arguments.
+Returns a union of HLL sketches, where each input expression must return an HLL sketch. The [HLL sketch documentation](../development//extensions-core//datasketches-hll.md) describes the optional `lgK` and `tgtHllType` arguments.
 
 * **Syntax:** `HLL_SKETCH_UNION([lgK, tgtHllType], expr0, expr1, ...)`
 * **Function type:** Scalar, sketch
