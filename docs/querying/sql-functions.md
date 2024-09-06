@@ -995,11 +995,11 @@ Returns the result of integer division of `x` by `y`.
 
 </details>
 
-<!-- :::info
+:::info
 
   The `DIV` function is not implemented in Druid versions 30.0.0 or earlier. Consider using [`SAFE_DIVIDE`](./sql-functions.md/#safe_divide) instead. 
 
-::: -->
+:::
 
 [Learn more](sql-scalar.md#numeric-functions)
 
