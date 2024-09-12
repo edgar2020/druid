@@ -51,7 +51,7 @@ For additional sketch types supported in Druid, see [DataSketches extension](dat
 |`type`|This string should always be "arrayOfDoublesSketch"|yes|
 |`name`|String representing the output column to store sketch values.|yes|
 |`fieldName`|A string for the name of the input field.|yes|
-|`nominalEntries`|Parameter that determines the accuracy and size of the sketch. Higher k means higher accuracy but more space to store sketches. Must be a power of 2. See the [Theta sketch accuracy](https://datasketches.apache.org/docs/Theta/ThetaErrorTable) for details. |no, defaults to 16384|
+|`nominalEntries`|Parameter that determines the accuracy and size of the sketch. A higher value means higher accuracy but more space to store sketches. Must be a power of 2. See the [Theta sketch accuracy](https://datasketches.apache.org/docs/Theta/ThetaErrorTable) for details. |no, defaults to 16384|
 |`metricColumns`|When building sketches from raw data, an array input column that contain numeric values to associate with each distinct key. If not provided, assumes `fieldName` is an `arrayOfDoublesSketch`|no, if not provided `fieldName` is assumed to be an arrayOfDoublesSketch|
 |`numberOfValues`|Number of values associated with each distinct key. |no, defaults to the length of `metricColumns` if provided and 1 otherwise|
 
