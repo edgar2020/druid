@@ -1100,13 +1100,57 @@ Creates a Theta sketch on a column containing Theta sketches or a regular column
 
 ## DS_TUPLE_DOUBLES
 
-`DS_TUPLE_DOUBLES(expr, [nominalEntries])`
-
-`DS_TUPLE_DOUBLES(dimensionColumnExpr, metricColumnExpr, ..., [nominalEntries])`
-
-**Function type:** [Aggregation](sql-aggregations.md)
-
 Creates a Tuple sketch which contains an array of double values as the Summary Object. If the last value of the array is a numeric literal, Druid assumes that the value is an override parameter for [nominal entries](../development/extensions-core/datasketches-tuple.md).
+
+* **Syntax:** `DS_TUPLE_DOUBLES(expr, [nominalEntries])`
+* **Syntax:** `DS_TUPLE_DOUBLES(dimensionColumnExpr, metricColumnExpr, ..., [nominalEntries])`
+* **Function type:** Aggregation
+
+<details><summary>Example</summary>
+
+The following example creates a Tuple sketch using the `Tail_Number` column as the dimension column and `Distance` and `CRSElapsedTime` as metric columns.
+
+```sql
+SELECT DS_TUPLE_DOUBLES("Tail_Number", "Distance") AS "tuple_sketch",
+        "Tail_Number",
+        SUM("Distance") AS "distance_traveled",
+        SUM("CRSElapsedTime") AS "flight_time"
+FROM "flight-carriers"
+WHERE  "Tail_Number" IS NOT null
+GROUP BY 2
+LIMIT 1 
+```
+
+Returns the following:
+
+| `tuple_sketch` | `Tail_Number` | `distance_traveled` | `flight_time` |
+| -- | -- | -- | -- |
+| `1.0` | `N050AA` | `36205` | `5738` |
+
+<br></br>
+
+The following example creates a Tuple sketch using the `Tail_Number` column as the dimension column and `Distance` and `CRSElapsedTime` as metric columns.
+
+```sql
+SELECT DS_TUPLE_DOUBLES("Tail_Number", "Distance") AS "tuple_sketch",
+        "Tail_Number",
+        SUM("Distance") AS "distance_traveled",
+        SUM("CRSElapsedTime") AS "flight_time"
+FROM "flight-carriers"
+WHERE  "Tail_Number" IS NOT null
+GROUP BY 2
+LIMIT 1 
+```
+
+Returns the following:
+
+| `tuple_sketch` | `Tail_Number` | `distance_traveled` | `flight_time` |
+| -- | -- | -- | -- |
+| `1.0` | `N050AA` | `36205` | `5738` |
+
+</details>
+
+[Learn more](sql-aggregations.md)
 
 ## DS_TUPLE_DOUBLES_INTERSECT
 
