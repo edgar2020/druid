@@ -2449,123 +2449,139 @@ Returns the following:
 
 ## MV_APPEND
 
-`MV_APPEND(arr1, expr)`
-
-**Function type:** [Multi-value string](sql-multivalue-string-functions.md)
-
 Adds the expression to the end of the array.
+
+* **Syntax:**: `MV_APPEND(arr1, expr)`
+* **Function type:** Multi-value string
+
+[Learn more](sql-multivalue-string-functions.md)
 
 ## MV_CONCAT
 
-`MV_CONCAT(arr1, arr2)`
-
-**Function type:** [Multi-value string](sql-multivalue-string-functions.md)
-
 Concatenates two arrays.
+
+* **Syntax:**: `MV_CONCAT(arr1, arr2)`
+* **Function type:** Multi-value string
+
+[Learn more](sql-multivalue-string-functions.md)
+
 
 ## MV_CONTAINS
 
-`MV_CONTAINS(arr, expr)`
-
-**Function type:** [Multi-value string](sql-multivalue-string-functions.md)
-
 Returns true if the expression is in the array, false otherwise.
+
+* **Syntax:**: `MV_CONTAINS(arr, expr)`
+* **Function type:** Multi-value string
+
+[Learn more](sql-multivalue-string-functions.md)
 
 ## MV_FILTER_NONE
 
-`MV_FILTER_NONE(expr, arr)`
-
-**Function type:** [Multi-value string](sql-multivalue-string-functions.md)
-
 Filters a multi-value expression to include no values contained in the array.
+
+* **Syntax:**: `MV_FILTER_NONE(expr, arr)`
+* **Function type:** Multi-value string
+
+[Learn more](sql-multivalue-string-functions.md)
 
 ## MV_FILTER_ONLY
 
-`MV_FILTER_ONLY(expr, arr)`
-
-**Function type:** [Multi-value string](sql-multivalue-string-functions.md)
-
 Filters a multi-value expression to include only values contained in the array.
+
+* **Syntax:**: `MV_FILTER_ONLY(expr, arr)`
+* **Function type:** Multi-value string
+
+[Learn more](sql-multivalue-string-functions.md)
 
 ## MV_LENGTH
 
-`MV_LENGTH(arr)`
-
-**Function type:** [Multi-value string](sql-multivalue-string-functions.md)
-
 Returns the length of an array expression.
+
+* **Syntax:**: `MV_LENGTH(arr)`
+* **Function type:** Multi-value string
+
+[Learn more](sql-multivalue-string-functions.md)
 
 ## MV_OFFSET
 
-`MV_OFFSET(arr, long)`
-
-**Function type:** [Multi-value string](sql-multivalue-string-functions.md)
-
 Returns the array element at the given zero-based index.
+
+* **Syntax:**: `MV_OFFSET(arr, long)`
+* **Function type:** Multi-value string
+
+[Learn more](sql-multivalue-string-functions.md)
 
 ## MV_OFFSET_OF
 
-`MV_OFFSET_OF(arr, expr)`
-
-**Function type:** [Multi-value string](sql-multivalue-string-functions.md)
-
 Returns the zero-based index of the first occurrence of a given expression in the array.
+
+* **Syntax:**: `MV_OFFSET_OF(arr, expr)`
+* **Function type:** Multi-value string
+
+[Learn more](sql-multivalue-string-functions.md)
 
 ## MV_ORDINAL
 
-`MV_ORDINAL(arr, long)`
-
-**Function type:** [Multi-value string](sql-multivalue-string-functions.md)
-
 Returns the array element at the given one-based index.
+
+* **Syntax:**: `MV_ORDINAL(arr, long)`
+* **Function type:** Multi-value string
+
+[Learn more](sql-multivalue-string-functions.md)
 
 ## MV_ORDINAL_OF
 
-`MV_ORDINAL_OF(arr, expr)`
-
-**Function type:** [Multi-value string](sql-multivalue-string-functions.md)
-
 Returns the one-based index of the first occurrence of a given expression.
+
+* **Syntax:**: `MV_ORDINAL_OF(arr, expr)`
+* **Function type:** Multi-value string
+
+[Learn more](sql-multivalue-string-functions.md)
 
 ## MV_OVERLAP
 
-`MV_OVERLAP(arr1, arr2)`
-
-**Function type:** [Multi-value string](sql-multivalue-string-functions.md)
-
 Returns true if the two arrays have any elements in common, false otherwise.
+
+* **Syntax:**: `MV_OVERLAP(arr1, arr2)`
+* **Function type:** Multi-value string
+
+[Learn more](sql-multivalue-string-functions.md)
 
 ## MV_PREPEND
 
-`MV_PREPEND(expr, arr)`
-
-**Function type:** [Multi-value string](sql-multivalue-string-functions.md)
-
 Adds the expression to the beginning of the array.
+
+* **Syntax:**: `MV_PREPEND(expr, arr)`
+* **Function type:** Multi-value string
+
+[Learn more](sql-multivalue-string-functions.md)
 
 ## MV_SLICE
 
-`MV_SLICE(arr, start, end)`
-
-**Function type:** [Multi-value string](sql-multivalue-string-functions.md)
-
 Returns a slice of the array from the zero-based start and end indexes.
+
+* **Syntax:**: `MV_SLICE(arr, start, end)`
+* **Function type:** Multi-value string
+
+[Learn more](sql-multivalue-string-functions.md)
 
 ## MV_TO_ARRAY
 
-`MV_TO_ARRAY(str)`
-
-**Function type:** [Multi-value string](sql-multivalue-string-functions.md)
-
 Converts a multi-value string from a `VARCHAR` to a `VARCHAR ARRAY`.
+
+* **Syntax:**: `MV_TO_ARRAY(str)`
+* **Function type:** Multi-value string
+
+[Learn more](sql-multivalue-string-functions.md)
 
 ## MV_TO_STRING
 
-`MV_TO_STRING(arr, str)`
-
-**Function type:** [Multi-value string](sql-multivalue-string-functions.md)
-
 Joins all elements of the array together by the given delimiter.
+
+* **Syntax:**: `MV_TO_STRING(arr, str)`
+* **Function type:** Multi-value string
+
+[Learn more](sql-multivalue-string-functions.md)
 
 ## NTILE
 
@@ -3195,11 +3211,12 @@ Returns the following:
 
 ## STRING_TO_MV
 
-`STRING_TO_MV(str1, str2)`
-
-**Function type:** [Multi-value string](sql-multivalue-string-functions.md)
-
 Splits `str1` into an multi-value string on the delimiter specified by `str2`, which is a regular expression.
+
+* **Syntax:** `STRING_TO_MV(str1, str2)`
+* **Function type:** Multi-value string
+
+[Learn more](sql-multivalue-string-functions.md)
 
 ## STRLEN
 
