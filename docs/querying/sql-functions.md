@@ -785,7 +785,9 @@ Returns the following:
 
 [Learn more](sql-scalar.md#other-scalar-functions)
 
-## CEIL (date and time)
+## CEIL
+
+### Date and time
 
 Rounds up a timestamp by a given time unit.
 
@@ -814,7 +816,7 @@ Returns the following:
 
 [Learn more](sql-scalar.md#date-and-time-functions)
 
-## CEIL (numeric)
+### Numeric
 
 Calculates the smallest integer value greater than or equal to the numeric expression.
 * **Syntax:** `CEIL(<NUMERIC>)`
@@ -1579,7 +1581,9 @@ Returns the following:
 
 Returns the value evaluated for the expression for the first row within the window.
 
-## FLOOR (date and time)
+## FLOOR
+
+### Date and time
 
 Rounds down a timestamp by a given time unit. 
 
@@ -1608,7 +1612,7 @@ Returns the following:
 
 [Learn more](sql-scalar.md#date-and-time-functions)
 
-## FLOOR (numeric)
+### Numeric
 
 Calculates the largest integer less than or equal to the numeric expression.
 
@@ -2198,6 +2202,15 @@ Returns the following:
 </details>
 
 [Learn more](sql-scalar.md#string-functions)
+
+## LISTAGG
+
+Alias for [`STRING_AGG`](#string_agg).
+
+* **Syntax:** `LISTAGG([DISTINCT] expr, [separator, [size]])`
+* **Function type:** Aggregation
+
+[Learn more](sql-aggregations.md)
 
 ## LN
 
@@ -3893,14 +3906,6 @@ Returns the following:
 `TRY_PARSE_JSON(expr)`
 
 Parses `expr` into a `COMPLEX<json>` object. This operator deserializes JSON values when processing them, translating stringified JSON into a nested structure. If the input is not a `VARCHAR` or it is invalid JSON, this function will result in a `NULL` value.
-
-## UNNEST
-
-`UNNEST(source_expression) as table_alias_name(column_alias_name)`
-
-Unnests a source expression that includes arrays into a target column with an aliased name. 
-
-For more information, see [UNNEST](./sql.md#unnest).
 
 ## UPPER
 
