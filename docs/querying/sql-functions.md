@@ -2082,10 +2082,13 @@ Returns an array of field names from `expr` at the specified `path`.
 
 ## JSON_MERGE
 
-**Function type:** [JSON](sql-json-functions.md)
-
-`JSON_MERGE(expr1, expr2[, expr3 ...])`
 Merges two or more JSON `STRING` or `COMPLEX<json>` into one. Preserves the rightmost value when there are key overlaps. Returning always a `COMPLEX<json>` type.
+
+* **Syntax:**: `JSON_MERGE(expr1, expr2[, expr3 ...])`
+* **Function type:** JSON
+
+[Learn more](sql-json-functions.md)
+
 
 ## JSON_OBJECT
 
