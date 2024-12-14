@@ -238,10 +238,12 @@ Returns the following:
 
 ## ARRAY[]
 
-* **Syntax**: `ARRAY[expr1, expr2, ...]`
-* **Function type:** [Array](sql-array-functions.md)
-
 Constructs a SQL ARRAY literal from the expression arguments. The arguments must be of the same type.
+
+* **Syntax**: `ARRAY[expr1, expr2, ...]`
+* **Function type:** Array
+
+[Learn more](sql-array-functions.md)
 
 ## ARRAY_AGG
 
@@ -254,17 +256,21 @@ Returns an array of all values of the specified expression.
 
 ## ARRAY_APPEND
 
-* **Syntax**: `ARRAY_APPEND(arr1, expr)`
-* **Function type:** [Array](./sql-array-functions.md)
-
 Appends `expr` to `arr`, the resulting array type determined by the type of `arr1`.
+
+* **Syntax**: `ARRAY_APPEND(arr1, expr)`
+* **Function type:** Array
+
+[Learn more](sql-array-functions.md)
 
 ## ARRAY_CONCAT
 
-* **Syntax**: `ARRAY_CONCAT(arr1, arr2)`
-* **Function type:** [Array](./sql-array-functions.md)
-
 Concatenates `arr2` to `arr1`. The resulting array type is determined by the type of `arr1`.|
+
+* **Syntax**: `ARRAY_CONCAT(arr1, arr2)`
+* **Function type:** Array
+
+[Learn more](sql-array-functions.md)
 
 ## ARRAY_CONCAT_AGG
 
@@ -277,90 +283,114 @@ Concatenates array inputs into a single array.
 
 ## ARRAY_CONTAINS
 
-* **Syntax**: `ARRAY_CONTAINS(arr, expr)`
-* **Function type:** [Array](./sql-array-functions.md)
-
 If `expr` is a scalar type, returns true if `arr` contains `expr`. If `expr` is an array, returns 1 if `arr` contains all elements of `expr`. Otherwise returns false.
+
+* **Syntax**: `ARRAY_CONTAINS(arr, expr)`
+* **Function type:** Array
+
+[Learn more](sql-array-functions.md)
 
 
 ## ARRAY_LENGTH
 
-* **Syntax**: `ARRAY_LENGTH(arr)`
-* **Function type:** [Array](./sql-array-functions.md)
-
 Returns length of the array expression.
+
+* **Syntax**: `ARRAY_LENGTH(arr)`
+* **Function type:** Array
+
+[Learn more](sql-array-functions.md)
 
 ## ARRAY_OFFSET
 
-* **Syntax**: `ARRAY_OFFSET(arr, long)`
-* **Function type:** [Array](./sql-array-functions.md)
-
 Returns the array element at the 0-based index supplied, or null for an out of range index.
+
+* **Syntax**: `ARRAY_OFFSET(arr, long)`
+* **Function type:** Array
+
+[Learn more](sql-array-functions.md)
 
 ## ARRAY_OFFSET_OF
 
-* **Syntax**: `ARRAY_OFFSET_OF(arr, expr)`
-* **Function type:** [Array](./sql-array-functions.md)
-
 Returns the 0-based index of the first occurrence of `expr` in the array. If no matching elements exist in the array, returns `null` or `-1` if `druid.generic.useDefaultValueForNull=true` (deprecated legacy mode).
+
+* **Syntax**: `ARRAY_OFFSET_OF(arr, expr)`
+* **Function type:** Array
+
+[Learn more](sql-array-functions.md)
 
 ## ARRAY_ORDINAL
 
 Returns the array element at the 1-based index supplied, or null for an out of range index.
 
 * **Syntax**: `ARRAY_ORDINAL(arr, long)`
-* **Function type:** [Array](./sql-array-functions.md)
+* **Function type:** Array
+
+[Learn more](sql-array-functions.md)
 
 ## ARRAY_ORDINAL_OF
 
-* **Syntax**: `ARRAY_ORDINAL_OF(arr, expr)`
-* **Function type:** [Array](./sql-array-functions.md)
-
 Returns the 1-based index of the first occurrence of `expr` in the array. If no matching elements exist in the array, returns `null` or `-1` if `druid.generic.useDefaultValueForNull=true` (deprecated legacy mode).
+
+* **Syntax**: `ARRAY_ORDINAL_OF(arr, expr)`
+* **Function type:** Array
+
+[Learn more](sql-array-functions.md)
 
 ## ARRAY_OVERLAP
 
-* **Syntax**: `ARRAY_OVERLAP(arr1, arr2)`
-* **Function type:** [Array](./sql-array-functions.md)
-
 Returns true if `arr1` and `arr2` have any elements in common, else false.
+
+* **Syntax**: `ARRAY_OVERLAP(arr1, arr2)`
+* **Function type:** Array
+
+[Learn more](sql-array-functions.md)
 
 ## SCALAR_IN_ARRAY
 
-* **Syntax**: `SCALAR_IN_ARRAY(expr, arr)`
-* **Function type:** [Array](./sql-array-functions.md)
-
 Returns true if the scalar `expr` is present in `arr`. Otherwise, returns false if the scalar `expr` is non-null or `UNKNOWN` if the scalar `expr` is `NULL`.
+
+* **Syntax**: `SCALAR_IN_ARRAY(expr, arr)`
+* **Function type:** Array
+
+[Learn more](sql-array-functions.md)
 
 Returns `UNKNOWN` if `arr` is `NULL`.
 
 ## ARRAY_PREPEND
 
-* **Syntax**: `ARRAY_PREPEND(expr, arr)`
-* **Function type:** [Array](./sql-array-functions.md)
-
 Prepends `expr` to `arr` at the beginning, the resulting array type determined by the type of `arr`.
+
+* **Syntax**: `ARRAY_PREPEND(expr, arr)`
+* **Function type:** Array
+
+[Learn more](sql-array-functions.md)
 
 ## ARRAY_SLICE
 
-* **Syntax**: `ARRAY_SLICE(arr, start, end)`
-* **Function type:** [Array](./sql-array-functions.md)
-
 Returns the subarray of `arr` from the 0-based index `start` (inclusive) to `end` (exclusive). Returns `null`, if `start` is less than 0, greater than length of `arr`, or greater than `end`.
+
+* **Syntax**: `ARRAY_SLICE(arr, start, end)`
+* **Function type:** Array
+
+[Learn more](sql-array-functions.md)
 
 ## ARRAY_TO_MV
 
-* **Syntax**: `ARRAY_TO_MV(arr)`
-* **Function type:** [Array](./sql-array-functions.md)
-
 Converts an `ARRAY` of any type into a multi-value string `VARCHAR`.
+
+* **Syntax**: `ARRAY_TO_MV(arr)`
+* **Function type:** Array
+
+[Learn more](sql-array-functions.md)
 
 ## ARRAY_TO_STRING
 
-* **Syntax**: `ARRAY_TO_STRING(arr, str)`
-* **Function type:** [Array](./sql-array-functions.md)
-
 Joins all elements of `arr` by the delimiter specified by `str`.
+
+* **Syntax**: `ARRAY_TO_STRING(arr, str)`
+* **Function type:** Array
+
+[Learn more](sql-array-functions.md)
 
 ## ASIN
 
@@ -3206,10 +3236,12 @@ Collects all values of an expression into a single string.
 
 ## STRING_TO_ARRAY
 
-* **Syntax**: `STRING_TO_ARRAY(str1, str2)`
-* **Function type:** [Array](sql-array-functions.md)
-
 Splits `str1` into an array on the delimiter specified by `str2`, which is a regular expression.
+
+* **Syntax**: `STRING_TO_ARRAY(str1, str2)`
+* **Function type:** Array
+
+[Learn more](sql-array-functions.md)
 
 
 ## STRING_FORMAT
