@@ -78,7 +78,7 @@ Calculates the arc cosine (arccosine) of a numeric expression.
 
 <details><summary>Example</summary>
 
-The following example calculates the arc cosine  of `0`.
+The following example calculates the arc cosine of `0`.
 
 ```sql
 SELECT ACOS(0) AS "arc_cosine"
@@ -1191,6 +1191,10 @@ Returns the rank for a row within a window without gaps. For example, if two row
 
 Returns the result of integer division of `x` by `y`.
 
+:::info
+The `DIV` function is not implemented in Druid versions 30.0.0 or earlier. Consider using [`SAFE_DIVIDE`](./sql-functions.md#safe_divide) instead. 
+:::
+
 * **Syntax:** `DIV(x, y)`
 * **Function type:** Scalar, numeric
 
@@ -1211,11 +1215,6 @@ Returns the result of integer division of `x` by `y`.
 
 </details>
 
-:::info
-
-  The `DIV` function is not implemented in Druid versions 30.0.0 or earlier. Consider using [`SAFE_DIVIDE`](./sql-functions.md/#safe_divide) instead. 
-
-:::
 
 [Learn more](sql-scalar.md#numeric-functions)
 
@@ -2080,6 +2079,13 @@ Returns an array of field names from `expr` at the specified `path`.
 
 [Learn more](sql-json-functions.md)
 
+
+## JSON_MERGE
+
+**Function type:** [JSON](sql-json-functions.md)
+
+`JSON_MERGE(expr1, expr2[, expr3 ...])`
+Merges two or more JSON `STRING` or `COMPLEX<json>` into one. Preserves the rightmost value when there are key overlaps. Returning always a `COMPLEX<json>` type.
 
 ## JSON_OBJECT
 
@@ -4002,7 +4008,7 @@ Returns the following:
 
 | `origin_city` | `uppercase` |
 | -- | -- |
-`San Juan, PR` | `SAN JUAN, PR` |
+| `San Juan, PR` | `SAN JUAN, PR` |
 
 </details>
 
