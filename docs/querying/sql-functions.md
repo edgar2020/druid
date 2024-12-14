@@ -1001,10 +1001,12 @@ Counts the number of rows.
 
 ## CUME_DIST
 
-* **Syntax**: `CUME_DIST()`
-* **Function type:** [Window](sql-window-functions.md#window-function-reference)
-
 Returns the cumulative distribution of the current row within the window calculated as `number of window rows at the same rank or higher than current row` / `total window rows`. The return value ranges between `1/number of rows` and 1.
+
+* **Syntax**: `CUME_DIST()`
+* **Function type:** Window
+
+[Learn more](sql-window-functions.md#window-function-reference)
 
 ## CURRENT_DATE
 
@@ -1148,10 +1150,12 @@ Returns the following:
 
 ## DENSE_RANK
 
-* **Syntax**: `DENSE_RANK()`
-* **Function type:** [Window](sql-window-functions.md#window-function-reference)
-
 Returns the rank for a row within a window without gaps. For example, if two rows tie for a rank of 1, the subsequent row is ranked 2.
+
+* **Syntax**: `DENSE_RANK()`
+* **Function type:** Window
+
+[Learn more](sql-window-functions.md#window-function-reference)
 
 ## DIV
 
@@ -1577,10 +1581,12 @@ Returns the following:
 
 ## FIRST_VALUE
 
-* **Syntax**: `FIRST_VALUE(expr)`
-* **Function type:** [Window](sql-window-functions.md#window-function-reference)
-
 Returns the value evaluated for the expression for the first row within the window.
+
+* **Syntax**: `FIRST_VALUE(expr)`
+* **Function type:** Window
+
+[Learn more](sql-window-functions.md#window-function-reference)
 
 ## FLOOR
 
@@ -2084,17 +2090,21 @@ Extracts a literal value from `expr` at the specified `path`. If you specify `RE
 
 ## LAG
 
-* **Syntax**: `LAG(expr[, offset])`
-* **Function type:** [Window](sql-window-functions.md#window-function-reference)
-
 If you do not supply an `offset`, returns the value evaluated at the row preceding the current row. Specify an offset number `n` to return the value evaluated at `n` rows preceding the current one.
+
+* **Syntax**: `LAG(expr[, offset])`
+* **Function type:** Window
+
+[Learn more](sql-window-functions.md#window-function-reference)
 
 ## LAST_VALUE
 
-* **Syntax**: `LAST_VALUE(expr)`
-* **Function type:** [Window](sql-window-functions.md#window-function-reference)
-
 Returns the value evaluated for the expression for the last row within the window.
+
+* **Syntax**: `LAST_VALUE(expr)`
+* **Function type:** Window
+
+[Learn more](sql-window-functions.md#window-function-reference)
 
 ## LATEST
 
@@ -2116,10 +2126,12 @@ Returns the value of a numeric or string expression corresponding to the latest 
 
 ## LEAD
 
-* **Syntax**: `LEAD(expr[, offset])`
-* **Function type:** [Window](sql-window-functions.md#window-function-reference)
-
 If you do not supply an `offset`, returns the value evaluated at the row following the current row. Specify an offset number `n` to return the value evaluated at `n` rows following the current one; if there is no such row, returns the given default value.
+
+* **Syntax**: `LEAD(expr[, offset])`
+* **Function type:** Window
+
+[Learn more](sql-window-functions.md#window-function-reference)
 
 ## LEAST
 
@@ -2600,10 +2612,12 @@ Joins all elements of the array together by the given delimiter.
 
 ## NTILE
 
-* **Syntax**: `NTILE(tiles)`
-* **Function type:** [Window](sql-window-functions.md#window-function-reference)
-
 Divides the rows within a window as evenly as possible into the number of tiles, also called buckets, and returns the value of the tile that the row falls into.
+
+* **Syntax**: `NTILE(tiles)`
+* **Function type:** Window
+
+[Learn more](sql-window-functions.md#window-function-reference)
 
 ## NULLIF
 
@@ -2701,10 +2715,12 @@ Returns the following:
 
 ## PERCENT_RANK
 
-* **Syntax**: `PERCENT_RANK()`
-* **Function type:** [Window](sql-window-functions.md#window-function-reference)
-
 Returns the relative rank of the row calculated as a percentage according to the formula: `RANK() OVER (window) / COUNT(1) OVER (window)`.
+
+* **Syntax**: `PERCENT_RANK()`
+* **Function type:** Window
+
+[Learn more](sql-window-functions.md#window-function-reference)
 
 ## POSITION
 
@@ -2784,10 +2800,12 @@ Returns the following:
 
 ## RANK
 
-* **Syntax**: `RANK()`
-* **Function type:** [Window](sql-window-functions.md#window-function-reference)
-
 Returns the rank with gaps for a row within a window. For example, if two rows tie for rank 1, the next rank is 3.
+
+* **Syntax**: `RANK()`
+* **Function type:** Window
+
+[Learn more](sql-window-functions.md#window-function-reference)
 
 ## REGEXP_EXTRACT
 
@@ -3014,10 +3032,12 @@ Returns the following:
 
 ## ROW_NUMBER
 
-* **Syntax**: `ROW_NUMBER()`
-* **Function type:** [Window](sql-window-functions.md#window-function-reference)
-
 Returns the number of the row within the window starting from 1.
+
+* **Syntax**: `ROW_NUMBER()`
+* **Function type:** Window
+
+[Learn more](sql-window-functions.md#window-function-reference)
 
 ## RPAD
 
