@@ -663,10 +663,12 @@ Computes a Bloom filter from values produced by the specified expression.
 
 ## BLOOM_FILTER_TEST
 
-* **Syntax**: `BLOOM_FILTER_TEST(expr, <STRING>)`
-* **Function type:** [Scalar, other](sql-scalar.md#other-scalar-functions)
-
 Returns true if the expression is contained in a Base64-serialized Bloom filter.
+
+* **Syntax**: `BLOOM_FILTER_TEST(expr, <STRING>)`
+* **Function type:** Scalar, other
+
+[Learn more](sql-scalar.md#other-scalar-functions)
 
 ## BTRIM
 
@@ -1087,10 +1089,12 @@ Returns the following:
 
 ## DECODE_BASE64_COMPLEX
 
-* **Syntax**: `DECODE_BASE64_COMPLEX(dataType, expr)`
-* **Function type:** [Scalar, other](sql-scalar.md#other-scalar-functions)
-
 Decodes a Base64-encoded string into a complex data type, where `dataType` is the complex data type and `expr` is the Base64-encoded string to decode.
+
+* **Syntax**: `DECODE_BASE64_COMPLEX(dataType, expr)`
+* **Function type:** Scalar, other
+
+[Learn more](sql-scalar.md#other-scalar-functions)
 
 ## DECODE_BASE64_UTF8
 
@@ -1467,31 +1471,39 @@ Creates a Tuple sketch which contains an array of double values as the Summary O
 
 ## DS_TUPLE_DOUBLES_INTERSECT
 
-* **Syntax**: `DS_TUPLE_DOUBLES_INTERSECT(expr, ..., [nominalEntries])`
-* **Function type:** [Scalar, sketch](sql-scalar.md#tuple-sketch-functions)
-
 Returns an intersection of Tuple sketches which each contain an array of double values as their Summary Objects. The values contained in the Summary Objects are summed when combined. If the last value of the array is a numeric literal, Druid assumes that the value is an override parameter for [nominal entries](../development/extensions-core/datasketches-tuple.md).
+
+* **Syntax**: `DS_TUPLE_DOUBLES_INTERSECT(expr, ..., [nominalEntries])`
+* **Function type:** Scalar, sketch
+
+[Learn more](sql-scalar.md#tuple-sketch-functions)
 
 ## DS_TUPLE_DOUBLES_METRICS_SUM_ESTIMATE
 
-* **Syntax**: `DS_TUPLE_DOUBLES_METRICS_SUM_ESTIMATE(expr)`
-* **Function type:** [Scalar, sketch](sql-scalar.md#tuple-sketch-functions)
-
 Computes approximate sums of the values contained within a Tuple sketch which contains an array of double values as the Summary Object.
+
+* **Syntax**: `DS_TUPLE_DOUBLES_METRICS_SUM_ESTIMATE(expr)`
+* **Function type:** Scalar, sketch
+
+[Learn more](sql-scalar.md#tuple-sketch-functions)
 
 ## DS_TUPLE_DOUBLES_NOT
 
-* **Syntax**: `DS_TUPLE_DOUBLES_NOT(expr, ..., [nominalEntries])`
-* **Function type:** [Scalar, sketch](sql-scalar.md#tuple-sketch-functions)
-
 Returns a set difference of Tuple sketches which each contain an array of double values as their Summary Objects. The values contained in the Summary Object are preserved as is. If the last value of the array is a numeric literal, Druid assumes that the value is an override parameter for [nominal entries](../development/extensions-core/datasketches-tuple.md).
+
+* **Syntax**: `DS_TUPLE_DOUBLES_NOT(expr, ..., [nominalEntries])`
+* **Function type:** Scalar, sketch
+
+[Learn more](sql-scalar.md#tuple-sketch-functions)
 
 ## DS_TUPLE_DOUBLES_UNION
 
-* **Syntax**: `DS_TUPLE_DOUBLES_UNION(expr, ..., [nominalEntries])`
-* **Function type:** [Scalar, sketch](sql-scalar.md#tuple-sketch-functions)
-
 Returns a union of Tuple sketches which each contain an array of double values as their Summary Objects. The values contained in the Summary Objects are summed when combined. If the last value of the array is a numeric literal, Druid assumes that the value is an override parameter for [nominal entries](../development/extensions-core/datasketches-tuple.md).
+
+* **Syntax**: `DS_TUPLE_DOUBLES_UNION(expr, ..., [nominalEntries])`
+* **Function type:** Scalar, sketch
+
+[Learn more](sql-scalar.md#tuple-sketch-functions)
 
 ## EARLIEST
 
