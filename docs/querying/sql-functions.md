@@ -265,7 +265,7 @@ Appends `expr` to `arr`, the resulting array type determined by the type of `arr
 
 ## ARRAY_CONCAT
 
-Concatenates `arr2` to `arr1`. The resulting array type is determined by the type of `arr1`.|
+Concatenates `arr2` to `arr1`. The resulting array type is determined by the type of `arr1`.
 
 * **Syntax**: `ARRAY_CONCAT(arr1, arr2)`
 * **Function type:** Array
