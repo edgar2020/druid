@@ -62,9 +62,9 @@ LIMIT 1
 ```
 Returns the following:
 
-| `arrival_delay` | `absolute_arrival_delay` | 
-| -- | -- | 
-| `-27` | `27` | 
+| `arrival_delay` | `absolute_arrival_delay` |
+| -- | -- |
+| `-27` | `27` |
 </details>
 
 [Learn more](sql-scalar.md#numeric-functions)
@@ -86,7 +86,7 @@ SELECT ACOS(0) AS "arc_cosine"
 Returns the following:
 
 | `arc_cosine` |  
-| -- | 
+| -- |
 | `1.5707963267948966` |
 </details>
 
@@ -202,7 +202,7 @@ FROM "flight-carriers"
 Returns a result similar to the following:
 
 | `estimate_median` |
-| -- | 
+| -- |
 | `569` |
 
 </details>
@@ -229,7 +229,7 @@ FROM "flight-carriers"
 Returns the following:
 
 | `estimate_median` |
-| -- | 
+| -- |
 | `571.6983032226562` |
 
 </details>
@@ -409,7 +409,7 @@ SELECT ASIN(1) AS "arc_sine"
 Returns the following:
 
 | `arc_sine` |  
-| -- | 
+| -- |
 | `1.5707963267948966` |
 </details>
 
@@ -432,7 +432,7 @@ SELECT ATAN(1) AS "arc_tangent"
 Returns the following:
 
 | `arc_tangent` |  
-| -- | 
+| -- |
 | `0.7853981633974483` |
 </details>
 
@@ -455,7 +455,7 @@ SELECT ATAN2(1,-1) AS "arc_tangent_2"
 Returns the following:
 
 | `arc_tangent_2` |  
-| -- | 
+| -- |
 | `2.356194490192345` |
 </details>
 
@@ -513,9 +513,9 @@ SELECT BITWISE_AND(12, 10) AS "bitwise_and"
 ```
 Returns the following:
 
-| `bitwise_and` | 
+| `bitwise_and` |
 | -- |
-| 8 | 
+| 8 |
 </details>
 
 [Learn more](sql-scalar.md#numeric-functions)
@@ -536,9 +536,9 @@ SELECT BITWISE_COMPLEMENT(12) AS "bitwise_complement"
 ```
 Returns the following:
 
-| `bitwise_complement` | 
+| `bitwise_complement` |
 | -- |
-| -13 | 
+| -13 |
 </details>
 
 [Learn more](sql-scalar.md#numeric-functions)
@@ -559,9 +559,9 @@ SELECT BITWISE_CONVERT_DOUBLE_TO_LONG_BITS(255) AS "ieee_754_double_to_long"
 ```
 Returns the following:
 
-| `ieee_754_double_to_long` | 
+| `ieee_754_double_to_long` |
 | -- |
-| `4643176031446892544` | 
+| `4643176031446892544` |
 </details>
 
 [Learn more](sql-scalar.md#numeric-functions)
@@ -583,9 +583,9 @@ SELECT BITWISE_CONVERT_LONG_BITS_TO_DOUBLE(4643176031446892544) AS "long_to_ieee
 ```
 Returns the following:
 
-| `long_to_ieee_754_double` | 
+| `long_to_ieee_754_double` |
 | -- |
-| `255` | 
+| `255` |
 </details>
 
 [Learn more](sql-scalar.md#numeric-functions)
@@ -606,9 +606,9 @@ SELECT BITWISE_OR(12, 10) AS "bitwise_or"
 ```
 Returns the following:
 
-| `bitwise_or` | 
+| `bitwise_or` |
 | -- |
-| `14` | 
+| `14` |
 </details>
 
 [Learn more](sql-scalar.md#numeric-functions)
@@ -629,9 +629,9 @@ SELECT BITWISE_SHIFT_LEFT(2, 3) AS "bitwise_shift_left"
 ```
 Returns the following:
 
-| `bitwise_shift_left` | 
+| `bitwise_shift_left` |
 | -- |
-| `16` | 
+| `16` |
 </details>
 
 [Learn more](sql-scalar.md#numeric-functions)
@@ -652,9 +652,9 @@ SELECT BITWISE_SHIFT_RIGHT(16, 3) AS "bitwise_shift_right"
 ```
 Returns the following:
 
-| `bitwise_shift_right` | 
+| `bitwise_shift_right` |
 | -- |
-| `2` | 
+| `2` |
 </details>
 
 [Learn more](sql-scalar.md#numeric-functions)
@@ -675,9 +675,9 @@ SELECT BITWISE_XOR(12, 10) AS "bitwise_xor"
 ```
 Returns the following:
 
-| `bitwise_xor` | 
+| `bitwise_xor` |
 | -- |
-| `6` | 
+| `6` |
 </details>
 
 [Learn more](sql-scalar.md#numeric-functions)
@@ -720,7 +720,7 @@ SELECT
 Returns the following:
 
 | `original_string` | `trim_both_ends` |
-| -- | -- | 
+| -- | -- |
 | `___abc___` | `abc` |
 
 </details>
@@ -818,7 +818,7 @@ LIMIT 1
 Returns the following:
 
 | `original_column` | `cast_to_string` |
-| -- | -- | 
+| -- | -- |
 | `1571` | `1571.0` |
 
 </details>
@@ -875,9 +875,9 @@ LIMIT 1
 ```
 Returns the following:
 
-| `fare_amount` | `ceiling_fare_amount` | 
-| -- | -- | 
-| `21.25` | `22` | 
+| `fare_amount` | `ceiling_fare_amount` |
+| -- | -- |
+| `21.25` | `22` |
 </details>
 
 [Learn more](sql-scalar.md#numeric-functions)
@@ -949,7 +949,7 @@ Returns the following:
 
 | `origin_city` | `destination_city` | `concatenate_flight_details` |
 | -- | -- | -- |
-| `San Juan, PR` | `Washington, DC` | `San Juan, PR to Washington, DC` | 
+| `San Juan, PR` | `Washington, DC` | `San Juan, PR to Washington, DC` |
 
 </details>
 
@@ -976,7 +976,7 @@ LIMIT 2
 
 Returns the following:
 
-| `origin_city` | `contains_string` | 
+| `origin_city` | `contains_string` |
 | -- | -- |
 | `San Juan, PR` | `true` |
 | `Boston, MA` | `false` |
@@ -1003,7 +1003,7 @@ SELECT COS(PI / 3) AS "cosine"
 Returns the following:
 
 | `cosine` |  
-| -- | 
+| -- |
 | `0.5000000000000001` |
 </details>
 
@@ -1026,7 +1026,7 @@ SELECT COT(PI / 3) AS "cotangent"
 Returns the following:
 
 | `cotangent` |  
-| -- | 
+| -- |
 | `0.577350269189626` |
 </details>
 
@@ -1068,7 +1068,7 @@ SELECT CURRENT_DATE AS "current_date"
 
 Returns the following:
 
-| `current_date` | 
+| `current_date` |
 | -- |
 | `2024-08-14T00:00:00.000Z `|
 
@@ -1185,7 +1185,7 @@ SELECT DEGREES(PI) AS "degrees"
 Returns the following:
 
 | `degrees` |  
-| -- | 
+| -- |
 | `180` |
 </details>
 
@@ -1249,7 +1249,7 @@ FROM "flight-carriers"
 
 Returns a result similar to the following:
 
-| `estimate_cdf` | 
+| `estimate_cdf` |
 | -- |
 | `[0.6332237016416492,0.8908411023460711,0.9612303007393957,1.0]` |
 
@@ -1276,7 +1276,7 @@ FROM "flight-carriers"
 Returns a result similar to the following:
 
 | `estimate_median` |
-| -- | 
+| -- |
 | `569` |
 
 </details>
@@ -1302,7 +1302,7 @@ FROM "flight-carriers"
 Returns a result similar to the following:
 
 | `estimate_fractions` |
-| -- | 
+| -- |
 | `[316.0,571.0,951.0]` |
 
 </details>
@@ -1328,7 +1328,7 @@ FROM "flight-carriers"
 
 Returns a result similar to the following:
 
-| `estimate_histogram` | 
+| `estimate_histogram` |
 | -- |
 | `[358496.0,153974.99999999997,39909.99999999999,13757.000000000005]` |
 
@@ -1359,8 +1359,8 @@ LIMIT 1
 
 Returns the following:
 
-| `origin_state` | `destination_state` | `hll_tail_number` | 
-| -- | -- | -- | 
+| `origin_state` | `destination_state` | `hll_tail_number` |
+| -- | -- | -- |
 | `AK` | `AK` | `"AwEHDAcIAAFBAAAAfY..."` |
 
 </details>
@@ -1439,8 +1439,8 @@ FROM "flight-carriers"
 
 Returns the following:
 
-| `quantile_sketch` | 
-| -- | 
+| `quantile_sketch` |
+| -- |
 | `AgMIGoAAAAB6owgAA...` |
 
 </details>
@@ -1681,9 +1681,9 @@ LIMIT 1
 ```
 Returns the following:
 
-| `fare_amount` | `floor_fare_amount` | 
-| -- | -- | 
-| `21.25` | `21` | 
+| `fare_amount` | `floor_fare_amount` |
+| -- | -- |
+| `21.25` | `21` |
 </details>
 
 [Learn more](sql-scalar.md#numeric-functions)
@@ -1706,7 +1706,7 @@ SELECT GREATEST(PI, 4, -5.0) AS "greatest"
 Returns the following:
 
 | `greatest` |
-| -- | 
+| -- |
 | `4` |
 
 </details>
@@ -1743,7 +1743,7 @@ FROM "flight-carriers"
 
 Returns the following:
 
-| `estimate` | 
+| `estimate` |
 | -- |
 | `4685.8815405960595` |
 
@@ -1990,7 +1990,7 @@ LIMIT 2
 Returns the following:
 
 | `ipv4_address` | `belongs_in_subnet`|
-| -- | -- | 
+| -- | -- |
 | `181.13.41.82` | `true`|
 | `177.242.100.0` | `false`|
 
@@ -2073,9 +2073,9 @@ SELECT
 
 Returns the following: 
 
-| `ipv6_address` | `belongs_in_subnet` | 
+| `ipv6_address` | `belongs_in_subnet` |
 | -- | -- |
-| `75e9:efa4:29c6:85f6::232c` | `true` | 
+| `75e9:efa4:29c6:85f6::232c` | `true` |
 
 
 </details>
@@ -2097,7 +2097,7 @@ Returns an array of field names from `expr` at the specified `path`.
 
 Merges two or more JSON `STRING` or `COMPLEX<json>` into one. Preserves the rightmost value when there are key overlaps. Returning always a `COMPLEX<json>` type.
 
-* **Syntax:**: `JSON_MERGE(expr1, expr2[, expr3 ...])`
+* **Syntax:** `JSON_MERGE(expr1, expr2[, expr3 ...])`
 * **Function type:** JSON
 
 [Learn more](sql-json-functions.md)
@@ -2270,7 +2270,7 @@ LIMIT 1
 
 Returns the following:
 
-| `origin_city_name` | `city_name_length` | 
+| `origin_city_name` | `city_name_length` |
 | -- | -- |
 | `San Juan, PR` | `12` |
 
@@ -2308,9 +2308,9 @@ LIMIT 1
 
 Returns the following:
 
-| `max_temperature` | `natural_log_max_temp` | 
-| -- | -- | 
-| `76` | `4.330733340286331` | 
+| `max_temperature` | `natural_log_max_temp` |
+| -- | -- |
+| `76` | `4.330733340286331` |
 
 </details>
 
@@ -2336,9 +2336,9 @@ LIMIT 1
 ```
 Returns the following:
 
-| `max_temperature` | `log10_max_temp` | 
-| -- | -- | 
-| `76` | `1.8808135922807914` | 
+| `max_temperature` | `log10_max_temp` |
+| -- | -- |
+| `76` | `1.8808135922807914` |
 </details>
 
 [Learn more](sql-scalar.md#numeric-functions)
@@ -2373,7 +2373,7 @@ LIMIT 2
 
 Returns the following:
 
-| `origin_airport` | `full_airport_name` | 
+| `origin_airport` | `full_airport_name` |
 | -- | -- |
 | `SJU` | `Luis Munoz Marin International Airport` |
 | `BOS` | `key not found` |
@@ -2464,7 +2464,7 @@ SELECT
 Returns the following:
 
 | `original_string` | `trim_leading_end_of_expression` |
-| -- | -- | 
+| -- | -- |
 | `___abc___` | `abc___` |
 
 </details>
@@ -2530,9 +2530,9 @@ SELECT MOD(78, 10) as "modulo"
 ```
 Returns the following:
 
-| `modulo` | 
-| -- | 
-| `8` | 
+| `modulo` |
+| -- |
+| `8` |
 </details>
 
 [Learn more](sql-scalar.md#numeric-functions)
@@ -2541,7 +2541,7 @@ Returns the following:
 
 Adds the expression to the end of the array.
 
-* **Syntax:**: `MV_APPEND(arr1, expr)`
+* **Syntax:** `MV_APPEND(arr1, expr)`
 * **Function type:** Multi-value string
 
 [Learn more](sql-multivalue-string-functions.md)
@@ -2550,7 +2550,7 @@ Adds the expression to the end of the array.
 
 Concatenates two arrays.
 
-* **Syntax:**: `MV_CONCAT(arr1, arr2)`
+* **Syntax:** `MV_CONCAT(arr1, arr2)`
 * **Function type:** Multi-value string
 
 [Learn more](sql-multivalue-string-functions.md)
@@ -2560,7 +2560,7 @@ Concatenates two arrays.
 
 Returns true if the expression is in the array, false otherwise.
 
-* **Syntax:**: `MV_CONTAINS(arr, expr)`
+* **Syntax:** `MV_CONTAINS(arr, expr)`
 * **Function type:** Multi-value string
 
 [Learn more](sql-multivalue-string-functions.md)
@@ -2569,7 +2569,7 @@ Returns true if the expression is in the array, false otherwise.
 
 Filters a multi-value expression to include no values contained in the array.
 
-* **Syntax:**: `MV_FILTER_NONE(expr, arr)`
+* **Syntax:** `MV_FILTER_NONE(expr, arr)`
 * **Function type:** Multi-value string
 
 [Learn more](sql-multivalue-string-functions.md)
@@ -2578,7 +2578,7 @@ Filters a multi-value expression to include no values contained in the array.
 
 Filters a multi-value expression to include only values contained in the array.
 
-* **Syntax:**: `MV_FILTER_ONLY(expr, arr)`
+* **Syntax:** `MV_FILTER_ONLY(expr, arr)`
 * **Function type:** Multi-value string
 
 [Learn more](sql-multivalue-string-functions.md)
@@ -2587,7 +2587,7 @@ Filters a multi-value expression to include only values contained in the array.
 
 Returns the length of an array expression.
 
-* **Syntax:**: `MV_LENGTH(arr)`
+* **Syntax:** `MV_LENGTH(arr)`
 * **Function type:** Multi-value string
 
 [Learn more](sql-multivalue-string-functions.md)
@@ -2596,7 +2596,7 @@ Returns the length of an array expression.
 
 Returns the array element at the given zero-based index.
 
-* **Syntax:**: `MV_OFFSET(arr, long)`
+* **Syntax:** `MV_OFFSET(arr, long)`
 * **Function type:** Multi-value string
 
 [Learn more](sql-multivalue-string-functions.md)
@@ -2605,7 +2605,7 @@ Returns the array element at the given zero-based index.
 
 Returns the zero-based index of the first occurrence of a given expression in the array.
 
-* **Syntax:**: `MV_OFFSET_OF(arr, expr)`
+* **Syntax:** `MV_OFFSET_OF(arr, expr)`
 * **Function type:** Multi-value string
 
 [Learn more](sql-multivalue-string-functions.md)
@@ -2614,7 +2614,7 @@ Returns the zero-based index of the first occurrence of a given expression in th
 
 Returns the array element at the given one-based index.
 
-* **Syntax:**: `MV_ORDINAL(arr, long)`
+* **Syntax:** `MV_ORDINAL(arr, long)`
 * **Function type:** Multi-value string
 
 [Learn more](sql-multivalue-string-functions.md)
@@ -2623,7 +2623,7 @@ Returns the array element at the given one-based index.
 
 Returns the one-based index of the first occurrence of a given expression.
 
-* **Syntax:**: `MV_ORDINAL_OF(arr, expr)`
+* **Syntax:** `MV_ORDINAL_OF(arr, expr)`
 * **Function type:** Multi-value string
 
 [Learn more](sql-multivalue-string-functions.md)
@@ -2632,7 +2632,7 @@ Returns the one-based index of the first occurrence of a given expression.
 
 Returns true if the two arrays have any elements in common, false otherwise.
 
-* **Syntax:**: `MV_OVERLAP(arr1, arr2)`
+* **Syntax:** `MV_OVERLAP(arr1, arr2)`
 * **Function type:** Multi-value string
 
 [Learn more](sql-multivalue-string-functions.md)
@@ -2641,7 +2641,7 @@ Returns true if the two arrays have any elements in common, false otherwise.
 
 Adds the expression to the beginning of the array.
 
-* **Syntax:**: `MV_PREPEND(expr, arr)`
+* **Syntax:** `MV_PREPEND(expr, arr)`
 * **Function type:** Multi-value string
 
 [Learn more](sql-multivalue-string-functions.md)
@@ -2650,7 +2650,7 @@ Adds the expression to the beginning of the array.
 
 Returns a slice of the array from the zero-based start and end indexes.
 
-* **Syntax:**: `MV_SLICE(arr, start, end)`
+* **Syntax:** `MV_SLICE(arr, start, end)`
 * **Function type:** Multi-value string
 
 [Learn more](sql-multivalue-string-functions.md)
@@ -2659,7 +2659,7 @@ Returns a slice of the array from the zero-based start and end indexes.
 
 Converts a multi-value string from a `VARCHAR` to a `VARCHAR ARRAY`.
 
-* **Syntax:**: `MV_TO_ARRAY(str)`
+* **Syntax:** `MV_TO_ARRAY(str)`
 * **Function type:** Multi-value string
 
 [Learn more](sql-multivalue-string-functions.md)
@@ -2668,7 +2668,7 @@ Converts a multi-value string from a `VARCHAR` to a `VARCHAR ARRAY`.
 
 Joins all elements of the array together by the given delimiter.
 
-* **Syntax:**: `MV_TO_STRING(arr, str)`
+* **Syntax:** `MV_TO_STRING(arr, str)`
 * **Function type:** Multi-value string
 
 [Learn more](sql-multivalue-string-functions.md)
@@ -2835,7 +2835,7 @@ Returns the following:
 
 | `power` |
 | -- |
-| `25` | 
+| `25` |
 </details>
 
 [Learn more](sql-scalar.md#numeric-functions)
@@ -2857,7 +2857,7 @@ SELECT RADIANS(180) AS "radians"
 Returns the following:
 
 | `radians` |  
-| -- | 
+| -- |
 | `3.141592653589793` |
 </details>
 
@@ -3005,7 +3005,7 @@ SELECT
 
 Returns the following:
 
-| `original_string` | `modified_string` | 
+| `original_string` | `modified_string` |
 | -- | -- |
 | `abc 123 abc 123` | `XYZ 123 XYZ 123` |
 
@@ -3088,9 +3088,9 @@ LIMIT 1
 ```
 Returns the following:
 
-| `pickup_longitude` | `rounded_pickup_longitude` | 
-| -- | -- | 
-| `-73.9377670288086` | `-74` | 
+| `pickup_longitude` | `rounded_pickup_longitude` |
+| -- | -- |
+| `-73.9377670288086` | `-74` |
 </details>
 
 [Learn more](sql-scalar.md#numeric-functions)
@@ -3155,7 +3155,7 @@ SELECT
 Returns the following:
 
 | `original_string` | `trim_end` |
-| -- | -- | 
+| -- | -- |
 | `___abc___` | `___abc` |
 
 </details>
@@ -3204,7 +3204,7 @@ SELECT SIN(PI / 3) AS "sine"
 Returns the following:
 
 | `sine` |  
-| -- | 
+| -- |
 | `0.8660254037844386` |
 </details>
 
@@ -3227,7 +3227,7 @@ SELECT SQRT(25) AS "square_root"
 Returns the following:
 
 | `square_root` |  
-| -- | 
+| -- |
 | `5` |
 </details>
 
@@ -3269,16 +3269,6 @@ Collects all values of an expression into a single string.
 
 [Learn more](sql-aggregations.md)
 
-## STRING_TO_ARRAY
-
-Splits `str1` into an array on the delimiter specified by `str2`, which is a regular expression.
-
-* **Syntax**: `STRING_TO_ARRAY(str1, str2)`
-* **Function type:** Array
-
-[Learn more](sql-array-functions.md)
-
-
 ## STRING_FORMAT
 
 Returns a string formatted in the manner of Java's [String.format](https://docs.oracle.com/javase/8/docs/api/java/lang/String.html#format-java.lang.String-java.lang.Object...-).
@@ -3308,6 +3298,15 @@ Returns the following:
 </details>
 
 [Learn more](sql-scalar.md#string-functions)
+
+## STRING_TO_ARRAY
+
+Splits `str1` into an array on the delimiter specified by `str2`, which is a regular expression.
+
+* **Syntax**: `STRING_TO_ARRAY(str1, str2)`
+* **Function type:** Array
+
+[Learn more](sql-array-functions.md)
 
 ## STRING_TO_MV
 
@@ -3419,7 +3418,7 @@ SELECT TAN(PI / 3) AS "tangent"
 Returns the following:
 
 | `tangent` |  
-| -- | 
+| -- |
 | `1.7320508075688767` |
 </details>
 
@@ -3464,9 +3463,9 @@ LIMIT 1
 
 Returns the following:
 
-| `origin_state` | `concatenate_state_with_USA` | 
-| -- | -- | 
-| `PR` | `PR, USA` | 
+| `origin_state` | `concatenate_state_with_USA` |
+| -- | -- |
+| `PR` | `PR, USA` |
 
 </details>
 
@@ -3491,7 +3490,7 @@ FROM "flight-carriers"
 Returns the following:
 
 | `estimate` |
-| -- | 
+| -- |
 | `4667` |
 
 </details>
@@ -3584,7 +3583,7 @@ FROM "flight-carriers"
 Returns the following:
 
 | `estimate_not` |
-| -- | 
+| -- |
 | `145` |
 
 </details>
@@ -3673,8 +3672,8 @@ LIMIT 2
 
 Returns the following:
 
-| `original_timestamp` | `extract_hour` | 
-| -- | -- | 
+| `original_timestamp` | `extract_hour` |
+| -- | -- |
 | `2013-08-01T08:14:37.000Z` | `4` |
 | `2013-08-01T09:13:00.000Z` | `5` |
 
@@ -3764,8 +3763,8 @@ Returns the following:
 
 | `original_time` | `in_interval` |
 | -- | -- |
-| `2013-08-01T08:14:37.000Z` | `true` | 
-| `2013-08-01T09:13:00.000Z` | `false` | 
+| `2013-08-01T08:14:37.000Z` | `true` |
+| `2013-08-01T09:13:00.000Z` | `false` |
 
 </details>
 
@@ -3792,7 +3791,7 @@ LIMIT 1
 
 Returns the following:
 
-| `original_string` | `timestamp` | 
+| `original_string` | `timestamp` |
 | -- | -- |
 | `2005-11-01` | `2005-11-01T05:00:00.000Z` |
 
@@ -3823,7 +3822,7 @@ Returns the following:
 
 | `original_timestamp` | `shift_back` |
 | -- | -- |
-| `2013-08-01T08:14:37.000Z` | `2013-07-31T08:14:37.000Z` | 
+| `2013-08-01T08:14:37.000Z` | `2013-07-31T08:14:37.000Z` |
 
 </details>
 
@@ -3983,9 +3982,9 @@ LIMIT 1
 ```
 Returns the following:
 
-| `pickup_longitude` | `truncate_pickup_longitude` | 
-| -- | -- | 
-| `-73.9377670288086` | `-73.9` | 
+| `pickup_longitude` | `truncate_pickup_longitude` |
+| -- | -- |
+| `-73.9377670288086` | `-73.9` |
 </details>
 
 
