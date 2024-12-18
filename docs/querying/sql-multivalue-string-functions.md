@@ -60,7 +60,7 @@ All array references in the multi-value string function documentation can refer 
 |`MV_PREPEND(expr, arr)`|Adds `expr` to the beginning of `arr`, the resulting array type determined by the type `arr`.|
 |`MV_APPEND(arr, expr)`|Appends `expr` to `arr`, the resulting array type determined by the type of `arr`.|
 |`MV_CONCAT(arr1, arr2)`|Concatenates `arr2` to `arr1`. The resulting array type is determined by the type of `arr1`.|
-|`MV_SLICE(arr, start, end)`|Returns the subarray of `arr` from the 0-based index start(inclusive) to end(exclusive), or `null`, if start is less than 0, greater than length of arr or greater than end.|
+|`MV_SLICE(arr, start, end)`|Returns the subarray of `arr` from the zero-based index of `start` (inclusive) to `end` (exclusive). Returns null when `start` is less than 0, greater than the array length, or greater than `end`. When `end` is greater than the array length, null values are appended to the subarray.|
 |`MV_TO_STRING(arr, str)`|Joins all elements of `arr` by the delimiter specified by `str`.|
 |`STRING_TO_MV(str1, str2)`|Splits `str1` into an array on the delimiter specified by `str2`, which is a regular expression.|
 |`MV_TO_ARRAY(str)`|Converts a multi-value string from a `VARCHAR` to a `VARCHAR ARRAY`.|

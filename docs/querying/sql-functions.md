@@ -2544,6 +2544,22 @@ Adds the expression to the end of the array.
 * **Syntax:** `MV_APPEND(arr1, expr)`
 * **Function type:** Multi-value string
 
+<details><summary>Example</summary>
+
+The following example TODO
+
+```sql
+TODO
+```
+
+Returns the following:
+
+| `TODO` |
+| -- |
+| `TODO` |
+
+</details>
+
 [Learn more](sql-multivalue-string-functions.md)
 
 ## MV_CONCAT
@@ -2552,6 +2568,22 @@ Concatenates two arrays.
 
 * **Syntax:** `MV_CONCAT(arr1, arr2)`
 * **Function type:** Multi-value string
+
+<details><summary>Example</summary>
+
+The following example TODO
+
+```sql
+TODO
+```
+
+Returns the following:
+
+| `TODO` |
+| -- |
+| `TODO` |
+
+</details>
 
 [Learn more](sql-multivalue-string-functions.md)
 
@@ -2563,6 +2595,22 @@ Returns true if the expression is in the array, false otherwise.
 * **Syntax:** `MV_CONTAINS(arr, expr)`
 * **Function type:** Multi-value string
 
+<details><summary>Example</summary>
+
+The following example TODO
+
+```sql
+TODO
+```
+
+Returns the following:
+
+| `TODO` |
+| -- |
+| `TODO` |
+
+</details>
+
 [Learn more](sql-multivalue-string-functions.md)
 
 ## MV_FILTER_NONE
@@ -2571,6 +2619,22 @@ Filters a multi-value expression to include no values contained in the array.
 
 * **Syntax:** `MV_FILTER_NONE(expr, arr)`
 * **Function type:** Multi-value string
+
+<details><summary>Example</summary>
+
+The following example TODO
+
+```sql
+TODO
+```
+
+Returns the following:
+
+| `TODO` |
+| -- |
+| `TODO` |
+
+</details>
 
 [Learn more](sql-multivalue-string-functions.md)
 
@@ -2581,6 +2645,22 @@ Filters a multi-value expression to include only values contained in the array.
 * **Syntax:** `MV_FILTER_ONLY(expr, arr)`
 * **Function type:** Multi-value string
 
+<details><summary>Example</summary>
+
+The following example TODO
+
+```sql
+TODO
+```
+
+Returns the following:
+
+| `TODO` |
+| -- |
+| `TODO` |
+
+</details>
+
 [Learn more](sql-multivalue-string-functions.md)
 
 ## MV_LENGTH
@@ -2589,6 +2669,22 @@ Returns the length of an array expression.
 
 * **Syntax:** `MV_LENGTH(arr)`
 * **Function type:** Multi-value string
+
+<details><summary>Example</summary>
+
+The following example TODO
+
+```sql
+TODO
+```
+
+Returns the following:
+
+| `TODO` |
+| -- |
+| `TODO` |
+
+</details>
 
 [Learn more](sql-multivalue-string-functions.md)
 
@@ -2599,6 +2695,22 @@ Returns the array element at the given zero-based index.
 * **Syntax:** `MV_OFFSET(arr, long)`
 * **Function type:** Multi-value string
 
+<details><summary>Example</summary>
+
+The following example TODO
+
+```sql
+TODO
+```
+
+Returns the following:
+
+| `TODO` |
+| -- |
+| `TODO` |
+
+</details>
+
 [Learn more](sql-multivalue-string-functions.md)
 
 ## MV_OFFSET_OF
@@ -2607,6 +2719,22 @@ Returns the zero-based index of the first occurrence of a given expression in th
 
 * **Syntax:** `MV_OFFSET_OF(arr, expr)`
 * **Function type:** Multi-value string
+
+<details><summary>Example</summary>
+
+The following example TODO
+
+```sql
+TODO
+```
+
+Returns the following:
+
+| `TODO` |
+| -- |
+| `TODO` |
+
+</details>
 
 [Learn more](sql-multivalue-string-functions.md)
 
@@ -2617,6 +2745,22 @@ Returns the array element at the given one-based index.
 * **Syntax:** `MV_ORDINAL(arr, long)`
 * **Function type:** Multi-value string
 
+<details><summary>Example</summary>
+
+The following example TODO
+
+```sql
+TODO
+```
+
+Returns the following:
+
+| `TODO` |
+| -- |
+| `TODO` |
+
+</details>
+
 [Learn more](sql-multivalue-string-functions.md)
 
 ## MV_ORDINAL_OF
@@ -2625,6 +2769,22 @@ Returns the one-based index of the first occurrence of a given expression.
 
 * **Syntax:** `MV_ORDINAL_OF(arr, expr)`
 * **Function type:** Multi-value string
+
+<details><summary>Example</summary>
+
+The following example TODO
+
+```sql
+TODO
+```
+
+Returns the following:
+
+| `TODO` |
+| -- |
+| `TODO` |
+
+</details>
 
 [Learn more](sql-multivalue-string-functions.md)
 
@@ -2635,6 +2795,22 @@ Returns true if the two arrays have any elements in common, false otherwise.
 * **Syntax:** `MV_OVERLAP(arr1, arr2)`
 * **Function type:** Multi-value string
 
+<details><summary>Example</summary>
+
+The following example TODO
+
+```sql
+TODO
+```
+
+Returns the following:
+
+| `TODO` |
+| -- |
+| `TODO` |
+
+</details>
+
 [Learn more](sql-multivalue-string-functions.md)
 
 ## MV_PREPEND
@@ -2643,6 +2819,22 @@ Adds the expression to the beginning of the array.
 
 * **Syntax:** `MV_PREPEND(expr, arr)`
 * **Function type:** Multi-value string
+
+<details><summary>Example</summary>
+
+The following example TODO
+
+```sql
+TODO
+```
+
+Returns the following:
+
+| `TODO` |
+| -- |
+| `TODO` |
+
+</details>
 
 [Learn more](sql-multivalue-string-functions.md)
 
@@ -2653,6 +2845,24 @@ Returns a slice of the array from the zero-based start and end indexes.
 * **Syntax:** `MV_SLICE(arr, start, end)`
 * **Function type:** Multi-value string
 
+<details><summary>Example</summary>
+
+The following example returns the second value of the `tags` column from `mvd_example`:
+
+```sql
+SELECT MV_SLICE(tags, 1, 2) AS slice
+FROM "mvd_example"
+LIMIT 1
+```
+
+Returns the following:
+
+| `slice` |
+| -- |
+| `t2` |
+
+</details>
+
 [Learn more](sql-multivalue-string-functions.md)
 
 ## MV_TO_ARRAY
@@ -2662,6 +2872,24 @@ Converts a multi-value string from a `VARCHAR` to a `VARCHAR ARRAY`.
 * **Syntax:** `MV_TO_ARRAY(str)`
 * **Function type:** Multi-value string
 
+<details><summary>Example</summary>
+
+The following example transforms the `tags` column from `mvd_example` to arrays:
+
+```sql
+SELECT MV_TO_ARRAY(tags) AS arr
+FROM "mvd_example"
+LIMIT 1
+```
+
+Returns the following:
+
+| `arr` |
+| -- |
+| `[t1, t2, t3]` |
+
+</details>
+
 [Learn more](sql-multivalue-string-functions.md)
 
 ## MV_TO_STRING
@@ -2670,6 +2898,24 @@ Joins all elements of the array together by the given delimiter.
 
 * **Syntax:** `MV_TO_STRING(arr, str)`
 * **Function type:** Multi-value string
+
+<details><summary>Example</summary>
+
+The following example transforms the `tags` column from `mvd_example` to strings delimited by a space character:
+
+```sql
+SELECT MV_TO_STRING("tags", ' ') AS str
+FROM mvd_example
+LIMIT 1
+```
+
+Returns the following:
+
+| `str` |
+| -- |
+| `t1 t2 t3` |
+
+</details>
 
 [Learn more](sql-multivalue-string-functions.md)
 
@@ -3308,12 +3554,29 @@ Splits `str1` into an array on the delimiter specified by `str2`, which is a reg
 
 [Learn more](sql-array-functions.md)
 
+
 ## STRING_TO_MV
 
 Splits `str1` into an multi-value string on the delimiter specified by `str2`, which is a regular expression.
 
 * **Syntax:** `STRING_TO_MV(str1, str2)`
 * **Function type:** Multi-value string
+
+<details><summary>Example</summary>
+
+The following example splits a street address by whitespace characters:
+
+```sql
+SELECT STRING_TO_MV('123 Rose Lane', '\s+') AS mv
+```
+
+Returns the following:
+
+| `mv` |
+| -- |
+| `["123","Rose","Lane"]` |
+
+</details>
 
 [Learn more](sql-multivalue-string-functions.md)
 
@@ -3985,6 +4248,7 @@ Returns the following:
 | `pickup_longitude` | `truncate_pickup_longitude` |
 | -- | -- |
 | `-73.9377670288086` | `-73.9` |
+
 </details>
 
 
