@@ -42,7 +42,7 @@ The examples on this page use the following example datasources:
 * `mvd_example` using [SQL-based ingestion](multi-value-dimensions.md#sql-based-ingestion)
 * `taxi-trips` using `NYC Taxi cabs (3 files)` included with Druid
 
-Use the following query to create the `array-example` datasource.
+Use the following query to create the `mvd_example` datasource.
 
 <details><summary>Datasource for multi-value string dimensions</summary>
 
