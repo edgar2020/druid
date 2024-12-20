@@ -39,8 +39,34 @@ This page provides a reference of Apache Druid&circledR; SQL functions in alphab
 The examples on this page use the following example datasources:
 * `flight-carriers` using `FlightCarrierOnTime (1 month)` included with Druid
 * `kttm` using `KoalasToTheMax one day` included with Druid
-* `mvd_example` using the SQL-based ingestion example for [multi-value dimensions](multi-value-dimensions.md#sql-based-ingestion)
+* `mvd_example` using [SQL-based ingestion](multi-value-dimensions.md#sql-based-ingestion)
 * `taxi-trips` using `NYC Taxi cabs (3 files)` included with Druid
+
+Use the following query to create the `array-example` datasource.
+
+<details><summary>Datasource for multi-value string dimensions</summary>
+
+```sql
+REPLACE INTO "mvd_example" OVERWRITE ALL
+WITH "ext" AS (
+  SELECT *
+  FROM TABLE(
+    EXTERN(
+      '{"type":"inline","data":"{\"timestamp\": \"2011-01-12T00:00:00.000Z\", \"label\": \"row1\", \"tags\": [\"t1\",\"t2\",\"t3\"]}\n{\"timestamp\": \"2011-01-13T00:00:00.000Z\", \"label\": \"row2\", \"tags\": [\"t3\",\"t4\",\"t5\"]}\n{\"timestamp\": \"2011-01-14T00:00:00.000Z\", \"label\": \"row3\", \"tags\": [\"t5\",\"t6\",\"t7\"]}\n{\"timestamp\": \"2011-01-14T00:00:00.000Z\", \"label\": \"row4\", \"tags\": []}"}',
+      '{"type":"json"}',
+      '[{"name":"timestamp", "type":"STRING"},{"name":"label", "type":"STRING"},{"name":"tags", "type":"ARRAY<STRING>"}]'
+    )
+  )
+)
+SELECT
+  TIME_PARSE("timestamp") AS "__time",
+  "label",
+  ARRAY_TO_MV("tags") AS "tags"
+FROM "ext"
+PARTITIONED BY DAY
+```
+
+</details>
 
 ## ABS
 
