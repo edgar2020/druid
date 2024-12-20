@@ -37,10 +37,45 @@ This page provides a reference of Apache Druid&circledR; SQL functions in alphab
 * [Window functions](sql-window-functions.md)
 
 The examples on this page use the following example datasources:
+* `array-example` created with [SQL-based ingestion](../multi-stage-query/index.md)
 * `flight-carriers` using `FlightCarrierOnTime (1 month)` included with Druid
 * `kttm` using `KoalasToTheMax one day` included with Druid
 * `mvd_example` using [SQL-based ingestion](multi-value-dimensions.md#sql-based-ingestion)
 * `taxi-trips` using `NYC Taxi cabs (3 files)` included with Druid
+
+
+Use the following query to create the `array-example` datasource.
+
+<details><summary>Example query</summary>
+
+```sql
+REPLACE INTO "array-example" OVERWRITE ALL
+WITH "ext" AS (
+  SELECT *
+  FROM TABLE(
+    EXTERN(
+      '{"type":"inline","data":"{\"timestamp\": \"2023-01-01T00:00:00\", \"label\": \"row1\", \"arrayString\": [\"a\", \"b\"],  \"arrayLong\":[1, null,3], \"arrayDouble\":[1.1, 2.2, null]}\n{\"timestamp\": \"2023-01-01T00:00:00\", \"label\": \"row2\", \"arrayString\": [null, \"b\"], \"arrayLong\":null,        \"arrayDouble\":[999, null, 5.5]}\n{\"timestamp\": \"2023-01-01T00:00:00\", \"label\": \"row3\", \"arrayString\": [],          \"arrayLong\":[1, 2, 3],   \"arrayDouble\":[null, 2.2, 1.1]} \n{\"timestamp\": \"2023-01-01T00:00:00\", \"label\": \"row4\", \"arrayString\": [\"a\", \"b\"],  \"arrayLong\":[1, 2, 3],   \"arrayDouble\":[]}\n{\"timestamp\": \"2023-01-01T00:00:00\", \"label\": \"row5\", \"arrayString\": null,        \"arrayLong\":[],          \"arrayDouble\":null}"}',
+      '{"type":"json"}'
+    )
+  ) EXTEND (
+    "timestamp" VARCHAR,
+    "label" VARCHAR,
+    "arrayString" VARCHAR ARRAY,
+    "arrayLong" BIGINT ARRAY,
+    "arrayDouble" DOUBLE ARRAY
+  )
+)
+SELECT
+    TIME_PARSE("timestamp") AS "__time",
+    "label",
+    "arrayString",
+    "arrayLong",
+    "arrayDouble"
+FROM "ext"
+PARTITIONED BY DAY
+```
+
+</details>
 
 Use the following query to create the `mvd_example` datasource.
 
