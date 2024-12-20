@@ -37,9 +37,10 @@ This page provides a reference of Apache Druid&circledR; SQL functions in alphab
 * [Window functions](sql-window-functions.md)
 
 The examples on this page use the following example datasources:
-* `flight-carriers` using `FlightCarrierOnTime (1 month)` 
-* `taxi-trips` using `NYC Taxi cabs (3 files)`
-* `kttm` using `KoalasToTheMax one day`
+* `flight-carriers` using `FlightCarrierOnTime (1 month)` included with Druid
+* `kttm` using `KoalasToTheMax one day` included with Druid
+* `mvd_example` using the SQL-based ingestion example for [multi-value dimensions](multi-value-dimensions.md#sql-based-ingestion)
+* `taxi-trips` using `NYC Taxi cabs (3 files)` included with Druid
 
 ## ABS
 
@@ -2546,17 +2547,19 @@ Adds the expression to the end of the array.
 
 <details><summary>Example</summary>
 
-The following example TODO
+The following example appends the string `label` to the multi-value string `tags` from `mvd_example`:
 
 ```sql
-TODO
+SELECT MV_APPEND("tags", "label") AS append
+FROM "mvd_example"
+LIMIT 1
 ```
 
 Returns the following:
 
-| `TODO` |
+| `append` |
 | -- |
-| `TODO` |
+| `["t1","t2","t3","row1"]` |
 
 </details>
 
@@ -2571,17 +2574,19 @@ Concatenates two arrays.
 
 <details><summary>Example</summary>
 
-The following example TODO
+The following example concatenates `tags` from `mvd_example` to itself:
 
 ```sql
-TODO
+SELECT MV_CONCAT("tags", "tags") AS cat
+FROM "mvd_example"
+LIMIT 1
 ```
 
 Returns the following:
 
-| `TODO` |
+| `cat` |
 | -- |
-| `TODO` |
+| `["t1","t2","t3","t1","t2","t3"]` |
 
 </details>
 
@@ -2597,17 +2602,19 @@ Returns true if the expression is in the array, false otherwise.
 
 <details><summary>Example</summary>
 
-The following example TODO
+The following example checks whether the string `t3` is located within `tags` from `mvd_example`:
 
 ```sql
-TODO
+SELECT MV_CONTAINS("tags", 't3') AS contained
+FROM "mvd_example"
+LIMIT 1
 ```
 
 Returns the following:
 
-| `TODO` |
+| `contained` |
 | -- |
-| `TODO` |
+| `true` |
 
 </details>
 
@@ -2622,17 +2629,21 @@ Filters a multi-value expression to include no values contained in the array.
 
 <details><summary>Example</summary>
 
-The following example TODO
+The following example filters `tags` from `mvd_example` to remove values `t1` or `t3`, if present:
 
 ```sql
-TODO
+SELECT MV_FILTER_NONE("tags", ARRAY['t1', 't3']) AS nofilt
+FROM "mvd_example"
+LIMIT 3
 ```
 
 Returns the following:
 
-| `TODO` |
+| `nofilt` |
 | -- |
-| `TODO` |
+| `t2` |
+| `["t4", "t5"]` |
+| `["t5","t6","t7"]` |
 
 </details>
 
@@ -2647,17 +2658,21 @@ Filters a multi-value expression to include only values contained in the array.
 
 <details><summary>Example</summary>
 
-The following example TODO
+The following example filters `tags` from `mvd_example` to only contain the values `t1` or `t3`:
 
 ```sql
-TODO
+SELECT MV_FILTER_ONLY("tags", ARRAY['t1', 't3']) AS filt
+FROM "mvd_example"
+LIMIT 3
 ```
 
 Returns the following:
 
-| `TODO` |
+| `filt` |
 | -- |
-| `TODO` |
+| `["t1","t3"]` |
+| `t3` |
+| null |
 
 </details>
 
@@ -2672,17 +2687,19 @@ Returns the length of an array expression.
 
 <details><summary>Example</summary>
 
-The following example TODO
+The following example returns the length of the `tags` multi-value strings from `mvd_example`:
 
 ```sql
-TODO
+SELECT MV_LENGTH("tags") AS len
+FROM "mvd_example"
+LIMIT 1
 ```
 
 Returns the following:
 
-| `TODO` |
+| `len` |
 | -- |
-| `TODO` |
+| `3` |
 
 </details>
 
@@ -2697,17 +2714,19 @@ Returns the array element at the given zero-based index.
 
 <details><summary>Example</summary>
 
-The following example TODO
+The following example returns the element at the third position of `tags` in `mvd_example`:
 
 ```sql
-TODO
+SELECT MV_OFFSET("tags", 2) AS elem
+FROM "mvd_example"
+LIMIT 1
 ```
 
 Returns the following:
 
-| `TODO` |
+| `elem` |
 | -- |
-| `TODO` |
+| `t3` |
 
 </details>
 
@@ -2722,17 +2741,19 @@ Returns the zero-based index of the first occurrence of a given expression in th
 
 <details><summary>Example</summary>
 
-The following example TODO
+The following example returns the zero-based index of the string `t3` from `tags` in `mvd_example`:
 
 ```sql
-TODO
+SELECT MV_OFFSET_OF("tags", 't3') AS index
+FROM "mvd_example"
+LIMIT 1
 ```
 
 Returns the following:
 
-| `TODO` |
+| `index` |
 | -- |
-| `TODO` |
+| `2` |
 
 </details>
 
@@ -2747,17 +2768,19 @@ Returns the array element at the given one-based index.
 
 <details><summary>Example</summary>
 
-The following example TODO
+The following example returns the element at the third position of `tags` in `mvd_example`:
 
 ```sql
-TODO
+SELECT MV_ORDINAL("tags", 3) AS elem
+FROM "mvd_example"
+LIMIT 1
 ```
 
 Returns the following:
 
-| `TODO` |
+| `elem` |
 | -- |
-| `TODO` |
+| `t3` |
 
 </details>
 
@@ -2772,17 +2795,19 @@ Returns the one-based index of the first occurrence of a given expression.
 
 <details><summary>Example</summary>
 
-The following example TODO
+The following example returns the one-based index of the string `t3` from `tags` in `mvd_example`:
 
 ```sql
-TODO
+SELECT MV_ORDINAL_OF("tags", 't3') AS index
+FROM "mvd_example"
+LIMIT 1
 ```
 
 Returns the following:
 
-| `TODO` |
+| `index` |
 | -- |
-| `TODO` |
+| `3` |
 
 </details>
 
@@ -2797,17 +2822,19 @@ Returns true if the two arrays have any elements in common, false otherwise.
 
 <details><summary>Example</summary>
 
-The following example TODO
+The following example returns the overlap of `tags` and itself from `mvd_example`:
 
 ```sql
-TODO
+SELECT MV_OVERLAP("tags", "tags") AS overlap
+FROM "mvd_example"
+LIMIT 1
 ```
 
 Returns the following:
 
-| `TODO` |
+| `overlap` |
 | -- |
-| `TODO` |
+| `true` |
 
 </details>
 
@@ -2822,17 +2849,20 @@ Adds the expression to the beginning of the array.
 
 <details><summary>Example</summary>
 
-The following example TODO
+The following example prepends the string dimension `label` to the multi-value string dimension `tags` from `mvd_example`:
 
 ```sql
-TODO
+SELECT MV_PREPEND("label", "tags") AS prepend
+FROM "mvd_example"
+LIMIT 1
 ```
 
 Returns the following:
 
-| `TODO` |
+| `prepend` |
 | -- |
-| `TODO` |
+| `["row1","t1","t2","t3"]` |
+
 
 </details>
 

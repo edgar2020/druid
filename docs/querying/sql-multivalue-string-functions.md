@@ -51,11 +51,11 @@ All array references in the multi-value string function documentation can refer 
 |`MV_FILTER_ONLY(expr, arr)`|Filters multi-value `expr` to include only values contained in array `arr`.|
 |`MV_FILTER_NONE(expr, arr)`|Filters multi-value `expr` to include no values contained in array `arr`.|
 |`MV_LENGTH(arr)`|Returns length of the array expression.|
-|`MV_OFFSET(arr, long)`|Returns the array element at the 0-based index supplied, or null for an out of range index.|
-|`MV_ORDINAL(arr, long)`|Returns the array element at the 1-based index supplied, or null for an out of range index.|
 |`MV_CONTAINS(arr, expr)`|If `expr` is a scalar type, returns 1 if `arr` contains `expr`. If `expr` is an array, returns 1 if `arr` contains all elements of `expr`. Otherwise returns 0.|
-|`MV_OVERLAP(arr1, arr2)`|Returns 1 if `arr1` and `arr2` have any elements in common, else 0.|
+|`MV_OVERLAP(arr1, arr2)`|Returns true if `arr1` and `arr2` have any elements in common, else false.|
+|`MV_OFFSET(arr, long)`|Returns the array element at the 0-based index supplied, or null for an out of range index.|
 |`MV_OFFSET_OF(arr, expr)`|Returns the 0-based index of the first occurrence of `expr` in the array. If no matching elements exist in the array, returns `null` or -1 if `druid.generic.useDefaultValueForNull=true` (deprecated legacy mode).|
+|`MV_ORDINAL(arr, long)`|Returns the array element at the 1-based index supplied, or null for an out of range index.|
 |`MV_ORDINAL_OF(arr, expr)`|Returns the 1-based index of the first occurrence of `expr` in the array. If no matching elements exist in the array, returns `null` or `-1` if `druid.generic.useDefaultValueForNull=true` (deprecated legacy mode).|
 |`MV_PREPEND(expr, arr)`|Adds `expr` to the beginning of `arr`, the resulting array type determined by the type `arr`.|
 |`MV_APPEND(arr, expr)`|Appends `expr` to `arr`, the resulting array type determined by the type of `arr`.|
