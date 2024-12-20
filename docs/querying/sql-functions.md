@@ -2605,16 +2605,18 @@ Returns true if the expression is in the array, false otherwise.
 The following example checks whether the string `t3` is located within `tags` from `mvd_example`:
 
 ```sql
-SELECT MV_CONTAINS("tags", 't3') AS contained
+SELECT "tags", MV_CONTAINS("tags", 't3') AS contained
 FROM "mvd_example"
-LIMIT 1
 ```
 
 Returns the following:
 
-| `contained` |
-| -- |
-| `true` |
+|`tags`|`contained`|
+|------|-----------|
+|`["t1","t2","t3"]`|`true`|
+|`["t3","t4","t5"]`|`true`|
+|`["t5","t6","t7"]`|`false`|
+|`null`|`false`|
 
 </details>
 
@@ -2714,19 +2716,21 @@ Returns the array element at the given zero-based index.
 
 <details><summary>Example</summary>
 
-The following example returns the element at the third position of `tags` in `mvd_example`:
+The following example returns `tags` and the element at the third position of `tags` in `mvd_example`:
 
 ```sql
-SELECT MV_OFFSET("tags", 2) AS elem
+SELECT "tags", MV_OFFSET("tags", 2) AS elem
 FROM "mvd_example"
-LIMIT 1
 ```
 
 Returns the following:
 
-| `elem` |
-| -- |
-| `t3` |
+|`tags`|`elem`|
+|------|------|
+|`["t1","t2","t3"]`|`t3`|
+|`["t3","t4","t5"]`|`t5`|
+|`["t5","t6","t7"]`|`t7`|
+|`null`|`null`|
 
 </details>
 
@@ -2741,19 +2745,21 @@ Returns the zero-based index of the first occurrence of a given expression in th
 
 <details><summary>Example</summary>
 
-The following example returns the zero-based index of the string `t3` from `tags` in `mvd_example`:
+The following example returns `tags` and the zero-based index of the string `t3` from `tags` in `mvd_example`:
 
 ```sql
-SELECT MV_OFFSET_OF("tags", 't3') AS index
+SELECT "tags", MV_OFFSET_OF("tags", 't3') AS index
 FROM "mvd_example"
-LIMIT 1
 ```
 
 Returns the following:
 
-| `index` |
-| -- |
-| `2` |
+|`tags`|`index`|
+|------|-------|
+|`["t1","t2","t3"]`|`2`|
+|`["t3","t4","t5"]`|`0`|
+|`["t5","t6","t7"]`|`null`|
+|`null`|`null`|
 
 </details>
 
@@ -2768,19 +2774,21 @@ Returns the array element at the given one-based index.
 
 <details><summary>Example</summary>
 
-The following example returns the element at the third position of `tags` in `mvd_example`:
+The following example returns `tags` and the element at the third position of `tags` in `mvd_example`:
 
 ```sql
-SELECT MV_ORDINAL("tags", 3) AS elem
+SELECT "tags", MV_ORDINAL("tags", 3) AS elem
 FROM "mvd_example"
-LIMIT 1
 ```
 
 Returns the following:
 
-| `elem` |
-| -- |
-| `t3` |
+|`tags`|`elem`|
+|------|------|
+|`["t1","t2","t3"]`|`t3`|
+|`["t3","t4","t5"]`|`t5`|
+|`["t5","t6","t7"]`|`t7`|
+|`null`|`null`|
 
 </details>
 
@@ -2795,19 +2803,21 @@ Returns the one-based index of the first occurrence of a given expression.
 
 <details><summary>Example</summary>
 
-The following example returns the one-based index of the string `t3` from `tags` in `mvd_example`:
+The following example returns `tags` and the one-based index of the string `t3` from `tags` in `mvd_example`:
 
 ```sql
-SELECT MV_ORDINAL_OF("tags", 't3') AS index
+SELECT "tags", MV_ORDINAL_OF("tags", 't3') AS index
 FROM "mvd_example"
-LIMIT 1
 ```
 
 Returns the following:
 
-| `index` |
-| -- |
-| `3` |
+|`tags`|`index`|
+|------|-------|
+|`["t1","t2","t3"]`|`3`|
+|`["t3","t4","t5"]`|`1`|
+|`["t5","t6","t7"]`|`null`|
+|`null`|`null`|
 
 </details>
 
@@ -2877,19 +2887,21 @@ Returns a slice of the array from the zero-based start and end indexes.
 
 <details><summary>Example</summary>
 
-The following example returns the second value of the `tags` column from `mvd_example`:
+The following example returns `tags` and the second and third values of `tags` from `mvd_example`:
 
 ```sql
-SELECT MV_SLICE(tags, 1, 2) AS slice
+SELECT "tags", MV_SLICE(tags, 1, 3) AS slice
 FROM "mvd_example"
-LIMIT 1
 ```
 
 Returns the following:
 
-| `slice` |
-| -- |
-| `t2` |
+|`tags`|`slice`|
+|------|-------|
+|`["t1"","t2","t3"]`|`["t2","t3"]`|
+|`["t3"","t4","t5"]`|`["t4","t5"]`|
+|`["t5"","t6","t7"]`|`["t6","t7"]`|
+|`null`|`null`|
 
 </details>
 
