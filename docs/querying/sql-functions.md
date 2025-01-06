@@ -43,6 +43,9 @@ The examples on this page use the following example datasources:
 * `mvd-example` using [SQL-based ingestion](multi-value-dimensions.md#sql-based-ingestion)
 * `taxi-trips` using `NYC Taxi cabs (3 files)` included with Druid
 
+To load a datasource included with Druid,
+access the [web console](../operations/web-console.md)
+and go to **Load data > Batch - SQL > Example data**.
 
 Use the following query to create the `array-example` datasource:
 
