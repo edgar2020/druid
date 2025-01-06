@@ -27,7 +27,7 @@ sidebar_label: "All functions"
  Apache Druid supports two query languages: Druid SQL and [native queries](querying.md).
  This document describes the SQL language.
 :::
-<!-- The **Learn More** at the end of each function section provides further documentation. -->
+
 This page provides a reference of Apache Druid&circledR; SQL functions in alphabetical order. For more details on a function, refer to the following:
 * [Aggregation functions](sql-aggregations.md)
 * [Array functions](sql-array-functions.md)
@@ -35,6 +35,8 @@ This page provides a reference of Apache Druid&circledR; SQL functions in alphab
 * [Multi-value string functions](sql-multivalue-string-functions.md)
 * [Scalar functions](sql-scalar.md)
 * [Window functions](sql-window-functions.md)
+
+## Example data
 
 The examples on this page use the following example datasources:
 * `array-example` created with [SQL-based ingestion](../multi-stage-query/index.md)
@@ -46,6 +48,9 @@ The examples on this page use the following example datasources:
 To load a datasource included with Druid,
 access the [web console](../operations/web-console.md)
 and go to **Load data > Batch - SQL > Example data**.
+Select **Connect data**, and parse using the default settings.
+On the page to configure the schema, select the datasource label
+and enter the name of the datasource listed above.
 
 Use the following query to create the `array-example` datasource:
 
