@@ -44,9 +44,9 @@ The examples on this page use the following example datasources:
 * `taxi-trips` using `NYC Taxi cabs (3 files)` included with Druid
 
 
-Use the following query to create the `array-example` datasource.
+Use the following query to create the `array-example` datasource:
 
-<details><summary>Example query</summary>
+<details><summary>Datasource for arrays</summary>
 
 ```sql
 REPLACE INTO "array-example" OVERWRITE ALL
@@ -77,7 +77,7 @@ PARTITIONED BY DAY
 
 </details>
 
-Use the following query to create the `mvd-example` datasource.
+Use the following query to create the `mvd-example` datasource:
 
 <details><summary>Datasource for multi-value string dimensions</summary>
 
