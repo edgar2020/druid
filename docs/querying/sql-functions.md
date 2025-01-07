@@ -142,6 +142,23 @@ Counts distinct values of a regular column or a prebuilt sketch column.
 * **Syntax**: `APPROX_COUNT_DISTINCT(expr)`
 * **Function type:** Aggregation
 
+<details><summary>Example</summary>
+
+The following example counts the number of distinct airlines reported in `flight-carriers`:
+
+```sql
+SELECT APPROX_COUNT_DISTINCT("Reporting_Airline") AS "num_airlines"
+FROM "flight-carriers"
+```
+
+Returns the following:
+
+| `num_airlines` |
+| -- |
+| `20` |
+
+</details>
+
 [Learn more](sql-aggregations.md)
 
 ## APPROX_COUNT_DISTINCT_BUILTIN
@@ -150,6 +167,23 @@ Counts distinct values of a string, numeric, or `hyperUnique` column using Druid
 
 * **Syntax**: `APPROX_COUNT_DISTINCT_BUILTIN(expr)`
 * **Function type:** Aggregation
+
+<details><summary>Example</summary>
+
+The following example counts the number of distinct airlines reported in `flight-carriers`:
+
+```sql
+SELECT APPROX_COUNT_DISTINCT_BUILTIN("Reporting_Airline") AS "num_airlines"
+FROM "flight-carriers"
+```
+
+Returns the following:
+
+| `num_airlines` |
+| -- |
+| `20` |
+
+</details>
 
 [Learn more](sql-aggregations.md)
 
@@ -889,6 +923,25 @@ Calculates the average of a set of values.
 * **Syntax**: `AVG(<NUMERIC>)`
 * **Function type:** Aggregation
 
+
+<details><summary>Example</summary>
+
+The following example calculates the average minutes of delay for a particular airlines in `flight-carriers`:
+
+```sql
+SELECT AVG("DepDelayMinutes") AS avg_delay
+FROM "flight-carriers"
+WHERE "Reporting_Airline" = 'AA'
+```
+
+Returns the following:
+
+| `avg_delay` |
+| -- |
+| `8.936` |
+
+</details>
+
 [Learn more](sql-aggregations.md)
 
 ## BIT_AND
@@ -1457,9 +1510,26 @@ Returns the following:
 
 Counts the number of rows.
 
-* **Syntax**: `COUNT([DISTINCT] expr)`  
-              `COUNT(*)`
+* **Syntax**: `COUNT([DISTINCT] expr)` `COUNT(*)`  
+COUNT DISTINCT is an alias for [`APPROX_COUNT_DISTINCT`](#approx_count_distinct).
 * **Function type:** Aggregation
+
+<details><summary>Example</summary>
+
+The following example counts the number of distinct airlines reported in `flight-carriers`:
+
+```sql
+SELECT COUNT(DISTINCT "Reporting_Airline") AS "num_airlines"
+FROM "flight-carriers"
+```
+
+Returns the following:
+
+| `num_airlines` |
+| -- |
+| `20` |
+
+</details>
 
 [Learn more](sql-aggregations.md)
 
@@ -2899,6 +2969,25 @@ Returns the maximum value of a set of values.
 * **Syntax**: `MAX(expr)`
 * **Function type:** Aggregation
 
+
+<details><summary>Example</summary>
+
+The following example calculates the maximum minutes of delay for a particular airlines in `flight-carriers`:
+
+```sql
+SELECT MAX("DepDelayMinutes") AS max_delay
+FROM "flight-carriers"
+WHERE "Reporting_Airline" = 'AA'
+```
+
+Returns the following:
+
+| `max_delay` |
+| -- |
+| `1210` |
+
+</details>
+
 [Learn more](sql-aggregations.md)
 
 ## MILLIS_TO_TIMESTAMP
@@ -2932,6 +3021,24 @@ Returns the minimum value of a set of values.
 
 * **Syntax**: `MIN(expr)`
 * **Function type:** Aggregation
+
+<details><summary>Example</summary>
+
+The following example calculates the minimum minutes of delay for a particular airlines in `flight-carriers`:
+
+```sql
+SELECT MIN("DepDelayMinutes") AS min_delay
+FROM "flight-carriers"
+WHERE "Reporting_Airline" = 'AA'
+```
+
+Returns the following:
+
+| `min_delay` |
+| -- |
+| `0` |
+
+</details>
 
 [Learn more](sql-aggregations.md)
 
@@ -3656,7 +3763,8 @@ Returns the following:
 
 ## STDDEV
 
-Alias for [`STDDEV_SAMP`](#stddev_samp).
+Alias for [`STDDEV_SAMP`](#stddev_samp).  
+Requires the [`druid-stats` extension](../development/extensions-core/stats.md).
 
 * **Syntax**: `STDDEV(expr)`
 * **Function type:** Aggregation
@@ -3665,19 +3773,57 @@ Alias for [`STDDEV_SAMP`](#stddev_samp).
 
 ## STDDEV_POP
 
-Calculates the population standard deviation of a set of values.
+Calculates the population standard deviation of a set of values.  
+Requires the [`druid-stats` extension](../development/extensions-core/stats.md).
 
 * **Syntax**: `STDDEV_POP(expr)`
 * **Function type:** Aggregation
+
+<details><summary>Example</summary>
+
+The following example calculates the population standard deviation for minutes of delay by a particular airlines in `flight-carriers`:
+
+```sql
+SELECT STDDEV_POP("DepDelayMinutes") AS sd_delay
+FROM "flight-carriers"
+WHERE "Reporting_Airline" = 'AA'
+```
+
+Returns the following:
+
+| `sd_delay` |
+| -- |
+| `27.083557` |
+
+</details>
 
 [Learn more](sql-aggregations.md)
 
 ## STDDEV_SAMP
 
-Calculates the sample standard deviation of a set of values.
+Calculates the sample standard deviation of a set of values.  
+Requires the [`druid-stats` extension](../development/extensions-core/stats.md).
 
 * **Syntax**: `STDDEV_SAMP(expr)`
 * **Function type:** Aggregation
+
+<details><summary>Example</summary>
+
+The following example calculates the sample standard deviation for minutes of delay by a particular airlines in `flight-carriers`:
+
+```sql
+SELECT STDDEV_SAMP("DepDelayMinutes") AS sd_delay
+FROM "flight-carriers"
+WHERE "Reporting_Airline" = 'AA'
+```
+
+Returns the following:
+
+| `sd_delay` |
+| -- |
+| `27.083811` |
+
+</details>
 
 [Learn more](sql-aggregations.md)
 
@@ -3820,6 +3966,24 @@ Calculates the sum of a set of values.
 
 * **Syntax**: `SUM(expr)`
 * **Function type:** Aggregation
+
+<details><summary>Example</summary>
+
+The following example calculates the total minutes of delay for a particular airlines in `flight-carriers`:
+
+```sql
+SELECT SUM("DepDelayMinutes") AS tot_delay
+FROM "flight-carriers"
+WHERE "Reporting_Airline" = 'AA'
+```
+
+Returns the following:
+
+| `tot_delay` |
+| -- |
+| `475735` |
+
+</details>
 
 [Learn more](sql-aggregations.md)
 
@@ -4453,25 +4617,64 @@ Returns the following:
 
 ## VAR_POP
 
-Calculates the population variance of a set of values.
+Calculates the population variance of a set of values.  
+Requires the [`druid-stats` extension](../development/extensions-core/stats.md).
 
 * **Syntax**: `VAR_POP(expr)`
 * **Function type:** Aggregation
+
+<details><summary>Example</summary>
+
+The following example calculates the population variance for minutes of delay by a particular airlines in `flight-carriers`:
+
+```sql
+SELECT VAR_POP("DepDelayMinutes") AS varpop_delay
+FROM "flight-carriers"
+WHERE "Reporting_Airline" = 'AA'
+```
+
+Returns the following:
+
+| `varpop_delay` |
+| -- |
+| `733.51908` |
+
+</details>
 
 [Learn more](sql-aggregations.md)
 
 ## VAR_SAMP
 
-Calculates the sample variance of a set of values.
+Calculates the sample variance of a set of values.  
+Requires the [`druid-stats` extension](../development/extensions-core/stats.md).
 
 * **Syntax**: `VAR_SAMP(expr)`
 * **Function type:** Aggregation
+
+<details><summary>Example</summary>
+
+The following example calculates the sample variance for minutes of delay by a particular airlines in `flight-carriers`:
+
+```sql
+SELECT VAR_SAMP("DepDelayMinutes") AS varsamp_delay
+FROM "flight-carriers"
+WHERE "Reporting_Airline" = 'AA'
+```
+
+Returns the following:
+
+| `varsamp_delay` |
+| -- |
+| `733.53286` |
+
+</details>
 
 [Learn more](sql-aggregations.md)
 
 ## VARIANCE
 
-Alias for [`VAR_SAMP`](#var_samp).
+Alias for [`VAR_SAMP`](#var_samp).  
+Requires the [`druid-stats` extension](../development/extensions-core/stats.md).
 
 * **Syntax**: `VARIANCE(expr)`
 * **Function type:** Aggregation
