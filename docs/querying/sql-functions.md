@@ -3058,7 +3058,7 @@ Returns true if the expression is in the array, false otherwise.
 
 <details><summary>Example</summary>
 
-The following example checks whether the string `t3` is located within `tags` from `mvd-example`:
+The following example checks if the string `t3` exists within `tags` from `mvd-example`:
 
 ```sql
 SELECT "tags", MV_CONTAINS("tags", 't3') AS contained
@@ -3080,7 +3080,7 @@ Returns the following:
 
 ## MV_FILTER_NONE
 
-Filters a multi-value expression to include no values contained in the array.
+Filters a multi-value expression to exclude values from an array.
 
 * **Syntax:** `MV_FILTER_NONE(expr, arr)`
 * **Function type:** Multi-value string
@@ -3090,14 +3090,14 @@ Filters a multi-value expression to include no values contained in the array.
 The following example filters `tags` from `mvd-example` to remove values `t1` or `t3`, if present:
 
 ```sql
-SELECT MV_FILTER_NONE("tags", ARRAY['t1', 't3']) AS nofilt
+SELECT MV_FILTER_NONE("tags", ARRAY['t1', 't3']) AS exclude
 FROM "mvd-example"
 LIMIT 3
 ```
 
 Returns the following:
 
-| `nofilt` |
+| `exclude` |
 | -- |
 | `t2` |
 | `["t4", "t5"]` |
