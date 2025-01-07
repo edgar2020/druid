@@ -3288,19 +3288,21 @@ Returns true if the two arrays have any elements in common, false otherwise.
 
 <details><summary>Example</summary>
 
-The following example returns the overlap of `tags` and itself from `mvd-example`:
+The following example identifies rows that contain `t1` or `t3` in `tags` from `mvd-example`:
 
 ```sql
-SELECT MV_OVERLAP("tags", "tags") AS overlap
-FROM "mvd-example"
-LIMIT 1
+SELECT "tags", MV_OVERLAP("tags", ARRAY['t1', 't3']) AS overlap
+FROM "mvd_example"
 ```
 
 Returns the following:
 
-| `overlap` |
-| -- |
-| `true` |
+|`tags`|`overlap`|
+|------|---------|
+|`["t1","t2","t3"]`|`true`|
+|`["t3","t4","t5"]`|`true`|
+|`["t5","t6","t7"]`|`false`|
+|`null`|`false`|
 
 </details>
 
