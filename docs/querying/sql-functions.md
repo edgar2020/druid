@@ -1516,18 +1516,28 @@ COUNT DISTINCT is an alias for [`APPROX_COUNT_DISTINCT`](#approx_count_distinct)
 
 <details><summary>Example</summary>
 
-The following example counts the number of distinct airlines reported in `flight-carriers`:
+The following example counts the number of distinct flights per day `flight-carriers`:
 
 ```sql
-SELECT COUNT(DISTINCT "Reporting_Airline") AS "num_airlines"
+SELECT
+  TIME_FLOOR(__time, 'P1D') AS "flight_day",
+  COUNT(*) AS "num_flights"
 FROM "flight-carriers"
+GROUP BY 1
+LIMIT 5
 ```
 
 Returns the following:
 
-| `num_airlines` |
-| -- |
-| `20` |
+|`flight_day`|`num_flights`|
+|------------|------------|
+|`0000-01-01T00:00:00.000Z`|`5586`|
+|`2005-11-01T00:00:00.000Z`|`18961`|
+|`2005-11-02T00:00:00.000Z`|`19434`|
+|`2005-11-03T00:00:00.000Z`|`19745`|
+|`2005-11-04T00:00:00.000Z`|`19753`|
+
+Notice that around 5000 flights don't have a properly reported flight time in the dataset.
 
 </details>
 
@@ -2049,6 +2059,29 @@ Returns the value of a numeric or string expression corresponding to the earlies
 * **Syntax**: `EARLIEST(expr, [maxBytesPerValue])`
 * **Function type:** Aggregation
 
+<details><summary>Example</summary>
+
+The following example returns the airport code associated with the earliest departing flight daily in `flight-carriers`:
+
+```sql
+SELECT
+  TIME_FLOOR(__time, 'P1D') AS "departure_day",
+  EARLIEST("Origin") AS "origin"
+FROM "flight-carriers"
+WHERE __time >= TIMESTAMP '2005-01-01 00:00:00'
+GROUP BY 1
+LIMIT 2
+```
+
+Returns the following:
+
+|`departure_day`|`origin`|
+|------------|--------|
+|`2005-11-01T00:00:00.000Z`|`LAS`|
+|`2005-11-02T00:00:00.000Z`|`SDF`|
+
+</details>
+
 [Learn more](sql-aggregations.md)
 
 ## EARLIEST_BY
@@ -2057,6 +2090,29 @@ Returns the value of a numeric or string expression corresponding to the earlies
 
 * **Syntax**: `EARLIEST_BY(expr, timestampExpr, [maxBytesPerValue])`
 * **Function type:** Aggregation
+
+<details><summary>Example</summary>
+
+The following example returns the airport code associated with the earliest arriving flight daily in `flight-carriers`:
+
+```sql
+SELECT
+  TIME_FLOOR(TIME_PARSE("arrivalime"), 'P1D') AS "arrival_day",
+  EARLIEST_BY("Origin", TIME_PARSE("arrivalime")) AS "origin"
+FROM "flight-carriers"
+WHERE TIME_PARSE("arrivalime") >= TIMESTAMP '2005-01-01 00:00:00'
+GROUP BY 1
+LIMIT 2
+```
+
+Returns the following:
+
+|`arrival_day`|`origin`|
+|-------------|--------|
+|`2005-11-01T00:00:00.000Z`|`DTW`|
+|`2005-11-02T00:00:00.000Z`|`LAS`|
+
+</details>
 
 [Learn more](sql-aggregations.md)
 
@@ -2667,6 +2723,29 @@ Returns the value of a numeric or string expression corresponding to the latest 
 * **Syntax**: `LATEST(expr, [maxBytesPerValue])`
 * **Function type:** Aggregation
 
+<details><summary>Example</summary>
+
+The following example returns the airport code associated with the latest departing flight daily in `flight-carriers`:
+
+```sql
+SELECT
+  TIME_FLOOR(__time, 'P1D') AS "departure_day",
+  LATEST("Origin") AS "origin"
+FROM "flight-carriers"
+WHERE __time >= TIMESTAMP '2005-01-01 00:00:00'
+GROUP BY 1
+LIMIT 2
+```
+
+Returns the following:
+
+|`departure_day`|`origin`|
+|------------|--------|
+|`2005-11-01T00:00:00.000Z`|`LAS`|
+|`2005-11-02T00:00:00.000Z`|`LAX`|
+
+</details>
+
 [Learn more](sql-aggregations.md)
 
 ## LATEST_BY
@@ -2675,6 +2754,29 @@ Returns the value of a numeric or string expression corresponding to the latest 
 
 * **Syntax**: `LATEST_BY(expr, timestampExpr, [maxBytesPerValue])`
 * **Function type:** Aggregation
+
+<details><summary>Example</summary>
+
+The following example returns the airport code associated with the latest arriving flight daily in `flight-carriers`:
+
+```sql
+SELECT
+  TIME_FLOOR(TIME_PARSE("arrivalime"), 'P1D') AS "arrival_day",
+  LATEST_BY("Origin", TIME_PARSE("arrivalime")) AS "origin"
+FROM "flight-carriers"
+WHERE TIME_PARSE("arrivalime") >= TIMESTAMP '2005-01-01 00:00:00'
+GROUP BY 1
+LIMIT 2
+```
+
+Returns the following:
+
+|`arrival_day`|`origin`|
+|-------------|--------|
+|`2005-11-01T00:00:00.000Z`|`CVG`|
+|`2005-11-02T00:00:00.000Z`|`ATL`|
+
+</details>
 
 [Learn more](sql-aggregations.md)
 
