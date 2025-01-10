@@ -1516,7 +1516,7 @@ COUNT DISTINCT is an alias for [`APPROX_COUNT_DISTINCT`](#approx_count_distinct)
 
 <details><summary>Example</summary>
 
-The following example counts the number of distinct flights per day `flight-carriers`:
+The following example counts the number of distinct flights per day after `'2005-01-01 00:00:00'` in `flight-carriers`:
 
 ```sql
 SELECT
@@ -1524,20 +1524,16 @@ SELECT
   COUNT(*) AS "num_flights"
 FROM "flight-carriers"
 GROUP BY 1
-LIMIT 5
+LIMIT 3
 ```
 
 Returns the following:
 
 |`flight_day`|`num_flights`|
 |------------|------------|
-|`0000-01-01T00:00:00.000Z`|`5586`|
 |`2005-11-01T00:00:00.000Z`|`18961`|
 |`2005-11-02T00:00:00.000Z`|`19434`|
 |`2005-11-03T00:00:00.000Z`|`19745`|
-|`2005-11-04T00:00:00.000Z`|`19753`|
-
-Notice that around 5000 flights don't have a properly reported flight time in the dataset.
 
 </details>
 
@@ -2061,7 +2057,7 @@ Returns the value of a numeric or string expression corresponding to the earlies
 
 <details><summary>Example</summary>
 
-The following example returns the airport code associated with the earliest departing flight daily in `flight-carriers`:
+The following example returns the origin airport code associated with the earliest departing flight daily after `'2005-01-01 00:00:00'` in `flight-carriers`:
 
 ```sql
 SELECT
@@ -2093,12 +2089,12 @@ Returns the value of a numeric or string expression corresponding to the earlies
 
 <details><summary>Example</summary>
 
-The following example returns the airport code associated with the earliest arriving flight daily in `flight-carriers`:
+The following example returns the destination airport code associated with the earliest arriving flight daily after `'2005-01-01 00:00:00'` in `flight-carriers`:
 
 ```sql
 SELECT
   TIME_FLOOR(TIME_PARSE("arrivalime"), 'P1D') AS "arrival_day",
-  EARLIEST_BY("Origin", TIME_PARSE("arrivalime")) AS "origin"
+  EARLIEST_BY("Dest", TIME_PARSE("arrivalime")) AS "dest"
 FROM "flight-carriers"
 WHERE TIME_PARSE("arrivalime") >= TIMESTAMP '2005-01-01 00:00:00'
 GROUP BY 1
@@ -2109,8 +2105,8 @@ Returns the following:
 
 |`arrival_day`|`origin`|
 |-------------|--------|
-|`2005-11-01T00:00:00.000Z`|`DTW`|
-|`2005-11-02T00:00:00.000Z`|`LAS`|
+|`2005-11-01T00:00:00.000Z`|`RSW`|
+|`2005-11-02T00:00:00.000Z`|`CLE`|
 
 </details>
 
@@ -2725,7 +2721,7 @@ Returns the value of a numeric or string expression corresponding to the latest 
 
 <details><summary>Example</summary>
 
-The following example returns the airport code associated with the latest departing flight daily in `flight-carriers`:
+The following example returns the origin airport code associated with the latest departing flight daily after `'2005-01-01 00:00:00'` in `flight-carriers`:
 
 ```sql
 SELECT
@@ -2757,12 +2753,12 @@ Returns the value of a numeric or string expression corresponding to the latest 
 
 <details><summary>Example</summary>
 
-The following example returns the airport code associated with the latest arriving flight daily in `flight-carriers`:
+The following example returns the destination airport code associated with the latest arriving flight daily after `'2005-01-01 00:00:00'` in `flight-carriers`:
 
 ```sql
 SELECT
   TIME_FLOOR(TIME_PARSE("arrivalime"), 'P1D') AS "arrival_day",
-  LATEST_BY("Origin", TIME_PARSE("arrivalime")) AS "origin"
+  LATEST_BY("Dest", TIME_PARSE("arrivalime")) AS "dest"
 FROM "flight-carriers"
 WHERE TIME_PARSE("arrivalime") >= TIMESTAMP '2005-01-01 00:00:00'
 GROUP BY 1
@@ -2773,8 +2769,8 @@ Returns the following:
 
 |`arrival_day`|`origin`|
 |-------------|--------|
-|`2005-11-01T00:00:00.000Z`|`CVG`|
-|`2005-11-02T00:00:00.000Z`|`ATL`|
+|`2005-11-01T00:00:00.000Z`|`MCO`|
+|`2005-11-02T00:00:00.000Z`|`BUF`|
 
 </details>
 
