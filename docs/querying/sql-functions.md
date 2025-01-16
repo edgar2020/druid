@@ -122,6 +122,7 @@ Returns the following:
 | `arc_cosine` |  
 | -- | 
 | `1.5707963267948966` |
+
 </details>
 
 [Learn more](sql-scalar.md#numeric-functions)
@@ -132,6 +133,30 @@ Returns any value of the specified expression.
 
 * **Syntax**: `ANY_VALUE(expr, [maxBytesPerValue, [aggregateMultipleValues]])`
 * **Function type:** Aggregation
+
+<details><summary>Example</summary>
+
+The following example returns the state abbrevation, state name, and average flight time grouped by each state in `flight-carriers`:
+
+```sql
+SELECT
+  "OriginState",
+  ANY_VALUE("OriginStateName") AS "OriginStateName",
+  AVG("ActualElapsedTime") AS "AverageFlightTime"
+FROM "flight-carriers"
+GROUP BY 1
+LIMIT 3
+```
+
+Returns the following:
+
+|`OriginState`|`OriginStateName`|`AverageFlightTime`|
+|-------------|-----------------|-------------------|
+|`AK`|`Alaska`|`113.2777967841259`|
+|`AL`|`Alabama`|`92.28766697732215`|
+|`AR`|`Arkansas`|`95.0391382405745`|
+
+</details>
 
 [Learn more](sql-aggregations.md)
 
@@ -951,6 +976,22 @@ Performs a bitwise AND operation on all input values.
 * **Syntax**: `BIT_AND(expr)`
 * **Function type:** Aggregation
 
+<details><summary>Example</summary>
+
+The following example TODO
+
+```sql
+TODO
+```
+
+Returns the following:
+
+| `TODO` |
+| -- |
+| `TODO` |
+
+</details>
+
 [Learn more](sql-aggregations.md)
 
 ## BIT_OR
@@ -960,6 +1001,22 @@ Performs a bitwise OR operation on all input values.
 * **Syntax**: `BIT_OR(expr)`
 * **Function type:** Aggregation
 
+<details><summary>Example</summary>
+
+The following example TODO
+
+```sql
+TODO
+```
+
+Returns the following:
+
+| `TODO` |
+| -- |
+| `TODO` |
+
+</details>
+
 [Learn more](sql-aggregations.md)
 
 ## BIT_XOR
@@ -968,6 +1025,22 @@ Performs a bitwise XOR operation on all input values.
 
 * **Syntax**: `BIT_XOR(expr)`
 * **Function type:** Aggregation
+
+<details><summary>Example</summary>
+
+The following example TODO
+
+```sql
+TODO
+```
+
+Returns the following:
+
+| `TODO` |
+| -- |
+| `TODO` |
+
+</details>
 
 [Learn more](sql-aggregations.md)
 
@@ -990,6 +1063,7 @@ Returns the following:
 | `bitwise_and` | 
 | -- |
 | 8 | 
+
 </details>
 
 [Learn more](sql-scalar.md#numeric-functions)
@@ -1013,6 +1087,7 @@ Returns the following:
 | `bitwise_complement` | 
 | -- |
 | -13 | 
+
 </details>
 
 [Learn more](sql-scalar.md#numeric-functions)
@@ -1036,6 +1111,7 @@ Returns the following:
 | `ieee_754_double_to_long` | 
 | -- |
 | `4643176031446892544` | 
+
 </details>
 
 [Learn more](sql-scalar.md#numeric-functions)
@@ -1060,6 +1136,7 @@ Returns the following:
 | `long_to_ieee_754_double` | 
 | -- |
 | `255` | 
+
 </details>
 
 [Learn more](sql-scalar.md#numeric-functions)
@@ -1083,6 +1160,7 @@ Returns the following:
 | `bitwise_or` | 
 | -- |
 | `14` | 
+
 </details>
 
 [Learn more](sql-scalar.md#numeric-functions)
@@ -1106,6 +1184,7 @@ Returns the following:
 | `bitwise_shift_left` | 
 | -- |
 | `16` | 
+
 </details>
 
 [Learn more](sql-scalar.md#numeric-functions)
@@ -1129,6 +1208,7 @@ Returns the following:
 | `bitwise_shift_right` | 
 | -- |
 | `2` | 
+
 </details>
 
 [Learn more](sql-scalar.md#numeric-functions)
@@ -1152,6 +1232,7 @@ Returns the following:
 | `bitwise_xor` | 
 | -- |
 | `6` | 
+
 </details>
 
 [Learn more](sql-scalar.md#numeric-functions)
@@ -2263,6 +2344,40 @@ Returns a number for each output row of a groupBy query, indicating whether the 
 
 * **Syntax**: `GROUPING(expr, expr...)`
 * **Function type:** Aggregation
+
+<details><summary>Example</summary>
+
+The following example returns the total minutes of flight delay for each day of the week in `flight-carriers`.
+The GROUP BY clause creates two grouping sets, one for the day of the week and one for the grand total.
+
+For more information, refer to [CASE](#case) and grouping sets with [SQL GROUP BY](sql.md#group-by).
+
+```sql
+SELECT
+  CASE
+     WHEN GROUPING("DayOfWeek") = 1 THEN 'Total'
+     ELSE "DayOfWeek"
+  END AS "DayOfWeek",
+  GROUPING("DayOfWeek") AS Subgroup,
+  SUM("DepDelayMinutes") AS "MinutesDelayed"
+FROM "flight-carriers"
+GROUP BY GROUPING SETS("DayOfWeek", ())
+```
+
+Returns the following:
+
+|`DayOfWeek`|`Subgroup`|`MinutesDelayed`|
+|-----------|-----------|----------------|
+|`1`|`0`|`998505`|
+|`2`|`0`|`1031599`|
+|`3`|`0`|`884677`|
+|`4`|`0`|`525351`|
+|`5`|`0`|`519413`|
+|`6`|`0`|`354601`|
+|`7`|`0`|`848704`|
+|`Total`|`1`|`5162850`|
+
+</details>
 
 [Learn more](sql-aggregations.md)
 
@@ -3931,6 +4046,22 @@ Collects all values of an expression into a single string.
 
 * **Syntax**: `STRING_AGG(expr, separator, [size])`
 * **Function type:** Aggregation
+
+<details><summary>Example</summary>
+
+The following example TODO
+
+```sql
+TODO
+```
+
+Returns the following:
+
+| `TODO` |
+| -- |
+| `TODO` |
+
+</details>
 
 [Learn more](sql-aggregations.md)
 
