@@ -1964,11 +1964,33 @@ Returns the following:
 
 ## DS_TUPLE_DOUBLES
 
-Creates a Tuple sketch which contains an array of double values as the Summary Object. If the last value of the array is a numeric literal, Druid assumes that the value is an override parameter for [nominal entries](../development/extensions-core/datasketches-tuple.md).
+Creates a Tuple sketch on raw data or a precomputed sketch column. See [DataSketches Tuple Sketch module](../development/extensions-core/datasketches-tuple.md) for a description of parameters.
 
-* **Syntax**: `DS_TUPLE_DOUBLES(expr, [nominalEntries])`  
-              `DS_TUPLE_DOUBLES(dimensionColumnExpr, metricColumnExpr, ..., [nominalEntries])`
+* **Syntax**: `DS_TUPLE_DOUBLES(expr[, nominalEntries])`  
+              `DS_TUPLE_DOUBLES(dimensionColumnExpr, metricColumnExpr1[, metricColumnExpr2, ...], [nominalEntries])`
 * **Function type:** Aggregation
+
+<details><summary>Example</summary>
+
+The following example creates a Tuples sketch column that stores the arrival and departure delay minutes for each airline in `flight-carriers`:
+
+```sql
+SELECT
+  "Reporting_Airline",
+  DS_TUPLE_DOUBLES("Reporting_Airline", "ArrDelayMinutes", "DepDelayMinutes") AS tuples_delay
+FROM "flight-carriers"
+GROUP BY 1
+LIMIT 2
+```
+
+Returns the following:
+
+|`Reporting_Airline`|`tuples_delay`|
+|-------------------|--------------|
+|`AA`|`1.0`|
+|`AS`|`1.0`|
+
+</details>
 
 [Learn more](sql-aggregations.md)
 
@@ -1979,6 +2001,22 @@ Returns an intersection of Tuple sketches which each contain an array of double 
 * **Syntax**: `DS_TUPLE_DOUBLES_INTERSECT(expr, ..., [nominalEntries])`
 * **Function type:** Scalar, sketch
 
+<details><summary>Example</summary>
+
+The following example TODO
+
+```sql
+TODO
+```
+
+Returns the following:
+
+| `TODO` |
+| -- |
+| `TODO` |
+
+</details>
+
 [Learn more](sql-scalar.md#tuple-sketch-functions)
 
 ## DS_TUPLE_DOUBLES_METRICS_SUM_ESTIMATE
@@ -1987,6 +2025,47 @@ Computes approximate sums of the values contained within a Tuple sketch which co
 
 * **Syntax**: `DS_TUPLE_DOUBLES_METRICS_SUM_ESTIMATE(expr)`
 * **Function type:** Scalar, sketch
+
+<details><summary>Example</summary>
+
+The following example calculates the sum of arrival and departure delay minutes for each airline in `flight-carriers`:
+
+```sql
+SELECT
+  "Reporting_Airline",
+  DS_TUPLE_DOUBLES_METRICS_SUM_ESTIMATE(DS_TUPLE_DOUBLES("Reporting_Airline", "ArrDelayMinutes", "DepDelayMinutes")) AS sum_delays
+FROM "flight-carriers"
+GROUP BY 1
+LIMIT 2
+```
+
+Returns the following:
+
+|`Reporting_Airline`|`sum_delays`|
+|----|-----------------|
+|`AA`|`[612831,474309]`|
+|`AS`|`[157340,141462]`|
+
+Compare this example with an analogous SQL statement that doesn't use approximations:
+
+```sql
+SELECT
+  "Reporting_Airline",
+  SUM("ArrDelayMinutes") AS sum_arrival_delay,
+  SUM("DepDelayMinutes") AS sum_departure_delay
+FROM "flight-carriers"
+GROUP BY 1
+LIMIT 2
+```
+
+Returns the following:
+
+|`Reporting_Airline`|`sum_arrival_delay`|`sum_departure_delay`|
+|----|--------|--------|
+|`AA`|`612831`|`475735`|
+|`AS`|`157340`|`143620`|
+
+</details>
 
 [Learn more](sql-scalar.md#tuple-sketch-functions)
 
@@ -1997,6 +2076,22 @@ Returns a set difference of Tuple sketches which each contain an array of double
 * **Syntax**: `DS_TUPLE_DOUBLES_NOT(expr, ..., [nominalEntries])`
 * **Function type:** Scalar, sketch
 
+<details><summary>Example</summary>
+
+The following example TODO
+
+```sql
+TODO
+```
+
+Returns the following:
+
+| `TODO` |
+| -- |
+| `TODO` |
+
+</details>
+
 [Learn more](sql-scalar.md#tuple-sketch-functions)
 
 ## DS_TUPLE_DOUBLES_UNION
@@ -2005,6 +2100,22 @@ Returns a union of Tuple sketches which each contain an array of double values a
 
 * **Syntax**: `DS_TUPLE_DOUBLES_UNION(expr, ..., [nominalEntries])`
 * **Function type:** Scalar, sketch
+
+<details><summary>Example</summary>
+
+The following example TODO
+
+```sql
+TODO
+```
+
+Returns the following:
+
+| `TODO` |
+| -- |
+| `TODO` |
+
+</details>
 
 [Learn more](sql-scalar.md#tuple-sketch-functions)
 
