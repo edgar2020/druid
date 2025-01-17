@@ -978,17 +978,19 @@ Performs a bitwise AND operation on all input values.
 
 <details><summary>Example</summary>
 
-The following example TODO
+The following example returns the bitwise AND operation for all values in `passenger-count` from `taxi-trips`:
 
 ```sql
-TODO
+SELECT
+  BIT_AND("passenger_count") AS "bit_and"
+FROM "taxi-trips"
 ```
 
 Returns the following:
 
-| `TODO` |
+| `bit_and` |
 | -- |
-| `TODO` |
+| `0` |
 
 </details>
 
@@ -1003,17 +1005,19 @@ Performs a bitwise OR operation on all input values.
 
 <details><summary>Example</summary>
 
-The following example TODO
+The following example returns the bitwise OR operation for all values in `passenger-count` from `taxi-trips`:
 
 ```sql
-TODO
+SELECT
+  BIT_OR("passenger_count") AS "bit_or"
+FROM "taxi-trips"
 ```
 
 Returns the following:
 
-| `TODO` |
+| `bit_or` |
 | -- |
-| `TODO` |
+| `15` |
 
 </details>
 
@@ -1028,17 +1032,19 @@ Performs a bitwise XOR operation on all input values.
 
 <details><summary>Example</summary>
 
-The following example TODO
+The following example returns the bitwise XOR operation for all values in `passenger-count` from `taxi-trips`:
 
 ```sql
-TODO
+SELECT
+  BIT_OR("passenger_count") AS "bit_xor"
+FROM "taxi-trips"
 ```
 
 Returns the following:
 
-| `TODO` |
+| `bit_xor` |
 | -- |
-| `TODO` |
+| `6` |
 
 </details>
 
@@ -4049,17 +4055,19 @@ Collects all values of an expression into a single string.
 
 <details><summary>Example</summary>
 
-The following example TODO
+The following example returns all the distinct airlines from `flight-carriers` as a single space-delimited string:
 
 ```sql
-TODO
+SELECT
+  STRING_AGG(DISTINCT "Reporting_Airline", ' ') AS "AllCarriers"
+FROM "flight-carriers"
 ```
 
 Returns the following:
 
-| `TODO` |
-| -- |
-| `TODO` |
+|`AllCarriers`|
+|-------------|
+|`AA AS B6 CO DH DL EV F9 FL HA HP MQ NW OH OO TZ UA US WN XE`|
 
 </details>
 
