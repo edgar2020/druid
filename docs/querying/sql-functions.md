@@ -2003,17 +2003,30 @@ Returns an intersection of Tuple sketches which each contain an array of double 
 
 <details><summary>Example</summary>
 
-The following example TODO
+The following example calculates the total minutes of arrival delay for airlines flying out of `SFO` or `LAX`.
+An airline that doesn't fly out of both airports returns a value of 0.
 
 ```sql
-TODO
+SELECT
+  "Reporting_Airline",
+  DS_TUPLE_DOUBLES_METRICS_SUM_ESTIMATE(
+    DS_TUPLE_DOUBLES_INTERSECT(
+      DS_TUPLE_DOUBLES("Reporting_Airline", "ArrDelayMinutes") FILTER(WHERE "Origin" = 'SFO'),
+      DS_TUPLE_DOUBLES("Reporting_Airline", "ArrDelayMinutes") FILTER(WHERE "Origin" = 'LAX')
+    )
+  ) AS arrival_delay_sfo_lax
+FROM "flight-carriers"
+GROUP BY 1
+LIMIT 3
 ```
 
 Returns the following:
 
-| `TODO` |
-| -- |
-| `TODO` |
+|`Reporting_Airline`|`arrival_delay_sfo_lax`|
+|----|---------|
+|`AA`|`[33296]`|
+|`AS`|`[13694]`|
+|`B6`|`[0]`|
 
 </details>
 
