@@ -122,6 +122,7 @@ Returns the following:
 | `arc_cosine` |  
 | -- | 
 | `1.5707963267948966` |
+
 </details>
 
 [Learn more](sql-scalar.md#numeric-functions)
@@ -132,6 +133,30 @@ Returns any value of the specified expression.
 
 * **Syntax**: `ANY_VALUE(expr, [maxBytesPerValue, [aggregateMultipleValues]])`
 * **Function type:** Aggregation
+
+<details><summary>Example</summary>
+
+The following example returns the state abbrevation, state name, and average flight time grouped by each state in `flight-carriers`:
+
+```sql
+SELECT
+  "OriginState",
+  ANY_VALUE("OriginStateName") AS "OriginStateName",
+  AVG("ActualElapsedTime") AS "AverageFlightTime"
+FROM "flight-carriers"
+GROUP BY 1
+LIMIT 3
+```
+
+Returns the following:
+
+|`OriginState`|`OriginStateName`|`AverageFlightTime`|
+|-------------|-----------------|-------------------|
+|`AK`|`Alaska`|`113.2777967841259`|
+|`AL`|`Alabama`|`92.28766697732215`|
+|`AR`|`Arkansas`|`95.0391382405745`|
+
+</details>
 
 [Learn more](sql-aggregations.md)
 
@@ -952,6 +977,24 @@ Performs a bitwise AND operation on all input values.
 * **Syntax**: `BIT_AND(expr)`
 * **Function type:** Aggregation
 
+<details><summary>Example</summary>
+
+The following example returns the bitwise AND operation for all values in `passenger-count` from `taxi-trips`:
+
+```sql
+SELECT
+  BIT_AND("passenger_count") AS "bit_and"
+FROM "taxi-trips"
+```
+
+Returns the following:
+
+| `bit_and` |
+| -- |
+| `0` |
+
+</details>
+
 [Learn more](sql-aggregations.md)
 
 ## BIT_OR
@@ -961,6 +1004,24 @@ Performs a bitwise OR operation on all input values.
 * **Syntax**: `BIT_OR(expr)`
 * **Function type:** Aggregation
 
+<details><summary>Example</summary>
+
+The following example returns the bitwise OR operation for all values in `passenger-count` from `taxi-trips`:
+
+```sql
+SELECT
+  BIT_OR("passenger_count") AS "bit_or"
+FROM "taxi-trips"
+```
+
+Returns the following:
+
+| `bit_or` |
+| -- |
+| `15` |
+
+</details>
+
 [Learn more](sql-aggregations.md)
 
 ## BIT_XOR
@@ -969,6 +1030,24 @@ Performs a bitwise XOR operation on all input values.
 
 * **Syntax**: `BIT_XOR(expr)`
 * **Function type:** Aggregation
+
+<details><summary>Example</summary>
+
+The following example returns the bitwise XOR operation for all values in `passenger-count` from `taxi-trips`:
+
+```sql
+SELECT
+  BIT_OR("passenger_count") AS "bit_xor"
+FROM "taxi-trips"
+```
+
+Returns the following:
+
+| `bit_xor` |
+| -- |
+| `6` |
+
+</details>
 
 [Learn more](sql-aggregations.md)
 
@@ -991,6 +1070,7 @@ Returns the following:
 | `bitwise_and` | 
 | -- |
 | 8 | 
+
 </details>
 
 [Learn more](sql-scalar.md#numeric-functions)
@@ -1014,6 +1094,7 @@ Returns the following:
 | `bitwise_complement` | 
 | -- |
 | -13 | 
+
 </details>
 
 [Learn more](sql-scalar.md#numeric-functions)
@@ -1037,6 +1118,7 @@ Returns the following:
 | `ieee_754_double_to_long` | 
 | -- |
 | `4643176031446892544` | 
+
 </details>
 
 [Learn more](sql-scalar.md#numeric-functions)
@@ -1061,6 +1143,7 @@ Returns the following:
 | `long_to_ieee_754_double` | 
 | -- |
 | `255` | 
+
 </details>
 
 [Learn more](sql-scalar.md#numeric-functions)
@@ -1084,6 +1167,7 @@ Returns the following:
 | `bitwise_or` | 
 | -- |
 | `14` | 
+
 </details>
 
 [Learn more](sql-scalar.md#numeric-functions)
@@ -1107,6 +1191,7 @@ Returns the following:
 | `bitwise_shift_left` | 
 | -- |
 | `16` | 
+
 </details>
 
 [Learn more](sql-scalar.md#numeric-functions)
@@ -1130,6 +1215,7 @@ Returns the following:
 | `bitwise_shift_right` | 
 | -- |
 | `2` | 
+
 </details>
 
 [Learn more](sql-scalar.md#numeric-functions)
@@ -1153,6 +1239,7 @@ Returns the following:
 | `bitwise_xor` | 
 | -- |
 | `6` | 
+
 </details>
 
 [Learn more](sql-scalar.md#numeric-functions)
@@ -1517,18 +1604,25 @@ COUNT DISTINCT is an alias for [`APPROX_COUNT_DISTINCT`](#approx_count_distinct)
 
 <details><summary>Example</summary>
 
-The following example counts the number of distinct airlines reported in `flight-carriers`:
+The following example counts the number of distinct flights per day after `'2005-01-01 00:00:00'` in `flight-carriers`:
 
 ```sql
-SELECT COUNT(DISTINCT "Reporting_Airline") AS "num_airlines"
+SELECT
+  TIME_FLOOR(__time, 'P1D') AS "flight_day",
+  COUNT(*) AS "num_flights"
 FROM "flight-carriers"
+WHERE __time > '2005-01-01 00:00:00'
+GROUP BY 1
+LIMIT 3
 ```
 
 Returns the following:
 
-| `num_airlines` |
-| -- |
-| `20` |
+|`flight_day`|`num_flights`|
+|------------|------------|
+|`2005-11-01T00:00:00.000Z`|`18961`|
+|`2005-11-02T00:00:00.000Z`|`19434`|
+|`2005-11-03T00:00:00.000Z`|`19745`|
 
 </details>
 
@@ -2050,6 +2144,29 @@ Returns the value of a numeric or string expression corresponding to the earlies
 * **Syntax**: `EARLIEST(expr, [maxBytesPerValue])`
 * **Function type:** Aggregation
 
+<details><summary>Example</summary>
+
+The following example returns the origin airport code associated with the earliest departing flight daily after `'2005-01-01 00:00:00'` in `flight-carriers`:
+
+```sql
+SELECT
+  TIME_FLOOR(__time, 'P1D') AS "departure_day",
+  EARLIEST("Origin") AS "origin"
+FROM "flight-carriers"
+WHERE __time >= TIMESTAMP '2005-01-01 00:00:00'
+GROUP BY 1
+LIMIT 2
+```
+
+Returns the following:
+
+|`departure_day`|`origin`|
+|------------|--------|
+|`2005-11-01T00:00:00.000Z`|`LAS`|
+|`2005-11-02T00:00:00.000Z`|`SDF`|
+
+</details>
+
 [Learn more](sql-aggregations.md)
 
 ## EARLIEST_BY
@@ -2058,6 +2175,29 @@ Returns the value of a numeric or string expression corresponding to the earlies
 
 * **Syntax**: `EARLIEST_BY(expr, timestampExpr, [maxBytesPerValue])`
 * **Function type:** Aggregation
+
+<details><summary>Example</summary>
+
+The following example returns the destination airport code associated with the earliest arriving flight daily after `'2005-01-01 00:00:00'` in `flight-carriers`:
+
+```sql
+SELECT
+  TIME_FLOOR(TIME_PARSE("arrivalime"), 'P1D') AS "arrival_day",
+  EARLIEST_BY("Dest", TIME_PARSE("arrivalime")) AS "dest"
+FROM "flight-carriers"
+WHERE TIME_PARSE("arrivalime") >= TIMESTAMP '2005-01-01 00:00:00'
+GROUP BY 1
+LIMIT 2
+```
+
+Returns the following:
+
+|`arrival_day`|`origin`|
+|-------------|--------|
+|`2005-11-01T00:00:00.000Z`|`RSW`|
+|`2005-11-02T00:00:00.000Z`|`CLE`|
+
+</details>
 
 [Learn more](sql-aggregations.md)
 
@@ -2212,6 +2352,40 @@ Returns a number for each output row of a groupBy query, indicating whether the 
 
 * **Syntax**: `GROUPING(expr, expr...)`
 * **Function type:** Aggregation
+
+<details><summary>Example</summary>
+
+The following example returns the total minutes of flight delay for each day of the week in `flight-carriers`.
+The GROUP BY clause creates two grouping sets, one for the day of the week and one for the grand total.
+
+For more information, refer to [CASE](#case) and grouping sets with [SQL GROUP BY](sql.md#group-by).
+
+```sql
+SELECT
+  CASE
+     WHEN GROUPING("DayOfWeek") = 1 THEN 'Total'
+     ELSE "DayOfWeek"
+  END AS "DayOfWeek",
+  GROUPING("DayOfWeek") AS Subgroup,
+  SUM("DepDelayMinutes") AS "MinutesDelayed"
+FROM "flight-carriers"
+GROUP BY GROUPING SETS("DayOfWeek", ())
+```
+
+Returns the following:
+
+|`DayOfWeek`|`Subgroup`|`MinutesDelayed`|
+|-----------|-----------|----------------|
+|`1`|`0`|`998505`|
+|`2`|`0`|`1031599`|
+|`3`|`0`|`884677`|
+|`4`|`0`|`525351`|
+|`5`|`0`|`519413`|
+|`6`|`0`|`354601`|
+|`7`|`0`|`848704`|
+|`Total`|`1`|`5162850`|
+
+</details>
 
 [Learn more](sql-aggregations.md)
 
@@ -2668,6 +2842,29 @@ Returns the value of a numeric or string expression corresponding to the latest 
 * **Syntax**: `LATEST(expr, [maxBytesPerValue])`
 * **Function type:** Aggregation
 
+<details><summary>Example</summary>
+
+The following example returns the origin airport code associated with the latest departing flight daily after `'2005-01-01 00:00:00'` in `flight-carriers`:
+
+```sql
+SELECT
+  TIME_FLOOR(__time, 'P1D') AS "departure_day",
+  LATEST("Origin") AS "origin"
+FROM "flight-carriers"
+WHERE __time >= TIMESTAMP '2005-01-01 00:00:00'
+GROUP BY 1
+LIMIT 2
+```
+
+Returns the following:
+
+|`departure_day`|`origin`|
+|------------|--------|
+|`2005-11-01T00:00:00.000Z`|`LAS`|
+|`2005-11-02T00:00:00.000Z`|`LAX`|
+
+</details>
+
 [Learn more](sql-aggregations.md)
 
 ## LATEST_BY
@@ -2676,6 +2873,29 @@ Returns the value of a numeric or string expression corresponding to the latest 
 
 * **Syntax**: `LATEST_BY(expr, timestampExpr, [maxBytesPerValue])`
 * **Function type:** Aggregation
+
+<details><summary>Example</summary>
+
+The following example returns the destination airport code associated with the latest arriving flight daily after `'2005-01-01 00:00:00'` in `flight-carriers`:
+
+```sql
+SELECT
+  TIME_FLOOR(TIME_PARSE("arrivalime"), 'P1D') AS "arrival_day",
+  LATEST_BY("Dest", TIME_PARSE("arrivalime")) AS "dest"
+FROM "flight-carriers"
+WHERE TIME_PARSE("arrivalime") >= TIMESTAMP '2005-01-01 00:00:00'
+GROUP BY 1
+LIMIT 2
+```
+
+Returns the following:
+
+|`arrival_day`|`origin`|
+|-------------|--------|
+|`2005-11-01T00:00:00.000Z`|`MCO`|
+|`2005-11-02T00:00:00.000Z`|`BUF`|
+
+</details>
 
 [Learn more](sql-aggregations.md)
 
@@ -3834,6 +4054,24 @@ Collects all values of an expression into a single string.
 
 * **Syntax**: `STRING_AGG(expr, separator, [size])`
 * **Function type:** Aggregation
+
+<details><summary>Example</summary>
+
+The following example returns all the distinct airlines from `flight-carriers` as a single space-delimited string:
+
+```sql
+SELECT
+  STRING_AGG(DISTINCT "Reporting_Airline", ' ') AS "AllCarriers"
+FROM "flight-carriers"
+```
+
+Returns the following:
+
+|`AllCarriers`|
+|-------------|
+|`AA AS B6 CO DH DL EV F9 FL HA HP MQ NW OH OO TZ UA US WN XE`|
+
+</details>
 
 [Learn more](sql-aggregations.md)
 
