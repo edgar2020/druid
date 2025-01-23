@@ -2972,7 +2972,7 @@ Returns the maximum value of a set of values.
 
 <details><summary>Example</summary>
 
-The following example calculates the maximum minutes of delay for a particular airlines in `flight-carriers`:
+The following example calculates the maximum delay in minutes for an airline in `flight-carriers`:
 
 ```sql
 SELECT MAX("DepDelayMinutes") AS max_delay
@@ -3024,7 +3024,7 @@ Returns the minimum value of a set of values.
 
 <details><summary>Example</summary>
 
-The following example calculates the minimum minutes of delay for a particular airlines in `flight-carriers`:
+The following example calculates the minimum delay in minutes for an airline in `flight-carriers`:
 
 ```sql
 SELECT MIN("DepDelayMinutes") AS min_delay
@@ -3781,7 +3781,7 @@ Requires the [`druid-stats` extension](../development/extensions-core/stats.md).
 
 <details><summary>Example</summary>
 
-The following example calculates the population standard deviation for minutes of delay by a particular airlines in `flight-carriers`:
+The following example calculates the population standard deviation for minutes of delay for an airline in `flight-carriers`:
 
 ```sql
 SELECT STDDEV_POP("DepDelayMinutes") AS sd_delay
@@ -3809,7 +3809,7 @@ Requires the [`druid-stats` extension](../development/extensions-core/stats.md).
 
 <details><summary>Example</summary>
 
-The following example calculates the sample standard deviation for minutes of delay by a particular airlines in `flight-carriers`:
+The following example calculates the sample standard deviation for minutes of delay for an airline in `flight-carriers`:
 
 ```sql
 SELECT STDDEV_SAMP("DepDelayMinutes") AS sd_delay
@@ -3969,7 +3969,7 @@ Calculates the sum of a set of values.
 
 <details><summary>Example</summary>
 
-The following example calculates the total minutes of delay for a particular airlines in `flight-carriers`:
+The following example calculates the total minutes of delay for an airline in `flight-carriers`:
 
 ```sql
 SELECT SUM("DepDelayMinutes") AS tot_delay
@@ -4653,7 +4653,7 @@ Requires the [`druid-stats` extension](../development/extensions-core/stats.md).
 
 <details><summary>Example</summary>
 
-The following example calculates the sample variance for minutes of delay by a particular airlines in `flight-carriers`:
+The following example calculates the sample variance for minutes of delay for an airline in `flight-carriers`:
 
 ```sql
 SELECT VAR_SAMP("DepDelayMinutes") AS varsamp_delay
