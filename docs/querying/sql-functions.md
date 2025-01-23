@@ -1610,6 +1610,7 @@ SELECT
   TIME_FLOOR(__time, 'P1D') AS "flight_day",
   COUNT(*) AS "num_flights"
 FROM "flight-carriers"
+WHERE __time > '2005-01-01 00:00:00'
 GROUP BY 1
 LIMIT 3
 ```
