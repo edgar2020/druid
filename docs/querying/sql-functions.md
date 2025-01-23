@@ -137,7 +137,7 @@ Returns any value of the specified expression.
 
 ## APPROX_COUNT_DISTINCT
 
-Counts distinct values of a regular column or a prebuilt sketch column.
+Counts distinct values of a regular column or a prebuilt sketch column using an approximate algorithm.
 
 * **Syntax**: `APPROX_COUNT_DISTINCT(expr)`
 * **Function type:** Aggregation
@@ -164,6 +164,7 @@ Returns the following:
 ## APPROX_COUNT_DISTINCT_BUILTIN
 
 Counts distinct values of a string, numeric, or `hyperUnique` column using Druid's built-in `cardinality` or `hyperUnique` aggregators.
+Consider using `APPROX_COUNT_DISTINCT_DS_HLL` instead, which offers better accuracy in many cases.
 
 * **Syntax**: `APPROX_COUNT_DISTINCT_BUILTIN(expr)`
 * **Function type:** Aggregation
